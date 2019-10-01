@@ -2,6 +2,8 @@ package rebue.suc.svc.impl;
 
 import lombok.extern.slf4j.Slf4j;
 
+import java.util.Date;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
@@ -45,6 +47,8 @@ public class SucUserDriverSvcImpl
 	@Override
 	@Transactional(readOnly = false, propagation = Propagation.REQUIRED)
 	public int add(SucUserDriverMo mo) {
+		mo.setSignupTime(new Date());
+		mo.setState((byte)1);
 		log.info("sucUserDriverSvc.add: 添加 mo-{}", mo);
 		// 如果id为空那么自动生成分布式id
 		if (mo.getId() == null || mo.getId() == 0) {

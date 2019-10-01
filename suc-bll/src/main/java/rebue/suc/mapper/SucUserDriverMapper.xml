@@ -381,7 +381,7 @@
   
     <select id="listUserComment" parameterType="rebue.suc.mo.SucUserDriverMo" resultType="rebue.suc.Ro.UserDriverRo">
     <!--
-		和list的区别就是返回值不一样
+		
     -->
     select 
     <include refid="Base_Column_List" />
@@ -392,9 +392,6 @@
       </if>
       <if test="userId != null">
         and USER_ID = #{userId,jdbcType=BIGINT}
-      </if>
-      <if test="state != null">
-        and STATE = #{state,jdbcType=TINYINT}
       </if>
       <if test="fieldId != null">
         and FIELD_ID = #{fieldId,jdbcType=BIGINT}
@@ -423,6 +420,7 @@
       <if test="recommender != null and recommender != ''">
         and RECOMMENDER = #{recommender,jdbcType=VARCHAR}
       </if>
+      and STATE > 1
     </where>
   </select>
   
