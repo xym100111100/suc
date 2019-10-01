@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 import rebue.robotech.dic.ResultDic;
 import rebue.robotech.ro.IdRo;
 import rebue.robotech.ro.Ro;
-import rebue.suc.Ro.UserLoginRo;
 import rebue.suc.mo.SucUserMo;
 import rebue.suc.svc.SucUserSvc;
 
@@ -72,17 +71,6 @@ public class SucUserCtrl {
             ro.setResult(ResultDic.FAIL);
             return ro;
         }
-    }
-    
-    /**
-     * 添加用户表
-     *
-     * @mbg.generated 自动生成，如需修改，请删除本行
-     */
-    @PostMapping("/suc/user/user-login")
-    UserLoginRo userLogin(@RequestBody final SucUserMo mo) throws Exception {
-        log.info("user-login : {}", mo);
-        return svc.userLogin(mo);
     }
 
     /**

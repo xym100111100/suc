@@ -18,8 +18,6 @@ import rebue.suc.mo.SucUserDriverMo;
 import rebue.suc.svc.SucUserDriverSvc;
 
 /**
- * 用户驾校信息
- *
  * @mbg.generated 自动生成的注释，如需修改本注释，请删除本行
  */
 @RestController
@@ -33,7 +31,7 @@ public class SucUserDriverCtrl {
     private SucUserDriverSvc svc;
 
     /**
-     * 添加用户驾校信息
+     * 添加
      *
      * @mbg.generated 自动生成，如需修改，请删除本行
      */
@@ -74,7 +72,7 @@ public class SucUserDriverCtrl {
     }
 
     /**
-     * 修改用户驾校信息
+     * 修改
      *
      * @mbg.generated 自动生成，如需修改，请删除本行
      */
@@ -104,7 +102,7 @@ public class SucUserDriverCtrl {
     }
 
     /**
-     * 删除用户驾校信息
+     * 删除
      *
      * @mbg.generated 自动生成，如需修改，请删除本行
      */
@@ -125,7 +123,7 @@ public class SucUserDriverCtrl {
     }
 
     /**
-     * 查询用户驾校信息
+     * 查询
      *
      * @mbg.generated 自动生成，如需修改，请删除本行
      */
@@ -151,7 +149,7 @@ public class SucUserDriverCtrl {
     }
 
     /**
-     * 获取单个用户驾校信息
+     * 获取单个
      *
      * @mbg.generated 自动生成，如需修改，请删除本行
      */

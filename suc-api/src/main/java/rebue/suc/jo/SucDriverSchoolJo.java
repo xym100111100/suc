@@ -122,15 +122,6 @@ public class SucDriverSchoolJo implements Serializable {
     private String driverDetail;
 
     /**
-     * 教练数量
-     *
-     * @mbg.generated 自动生成，如需修改，请删除本行
-     */
-    @Basic(optional = false)
-    @Column(name = "TEACHER_COUNT", nullable = false, length = 10)
-    private Integer teacherCount;
-
-    /**
      * 训练车数量
      *
      * @mbg.generated 自动生成，如需修改，请删除本行
@@ -166,6 +157,15 @@ public class SucDriverSchoolJo implements Serializable {
     @Basic(optional = false)
     @Column(name = "ALL_RATE", nullable = false, length = 8)
     private Integer allRate;
+
+    /**
+     * 学校详情
+     *
+     * @mbg.generated 自动生成，如需修改，请删除本行
+     */
+    @Basic(optional = false)
+    @Column(name = "SCHOOL_DETAIL", nullable = false, length = 20)
+    private String schoolDetail;
 
     /**
      * @mbg.generated 自动生成，如需修改，请删除本行

@@ -12,8 +12,6 @@ import rebue.suc.mo.SucUserDriverMo;
 import rebue.suc.svc.SucUserDriverSvc;
 
 /**
- * 用户驾校信息
- *
  * 在单独使用不带任何参数的 @Transactional 注释时，
  * propagation(传播模式)=REQUIRED，readOnly=false，
  * isolation(事务隔离级别)=READ_COMMITTED，
@@ -36,7 +34,7 @@ public class SucUserDriverSvcImpl extends BaseSvcImpl<java.lang.Long, SucUserDri
     @Override
     @Transactional(readOnly = false, propagation = Propagation.REQUIRED)
     public int add(SucUserDriverMo mo) {
-        log.info("sucUserDriverSvc.add: 添加用户驾校信息 mo-", mo);
+        log.info("sucUserDriverSvc.add: 添加 mo-", mo);
         // 如果id为空那么自动生成分布式id
         if (mo.getId() == null || mo.getId() == 0) {
             mo.setId(_idWorker.getId());
