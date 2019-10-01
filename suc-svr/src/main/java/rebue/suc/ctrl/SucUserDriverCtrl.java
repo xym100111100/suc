@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import rebue.robotech.dic.ResultDic;
 import rebue.robotech.ro.IdRo;
 import rebue.robotech.ro.Ro;
+import rebue.suc.Ro.UserDriverRo;
 import rebue.suc.mo.SucUserDriverMo;
 import rebue.suc.svc.SucUserDriverSvc;
 
@@ -128,7 +129,7 @@ public class SucUserDriverCtrl {
      * @mbg.generated 自动生成，如需修改，请删除本行
      */
     @GetMapping("/suc/user-driver")
-    PageInfo<SucUserDriverMo> list(final SucUserDriverMo mo, @RequestParam(value = "pageNum", required = false) Integer pageNum, @RequestParam(value = "pageSize", required = false) Integer pageSize) {
+    PageInfo<UserDriverRo> listUserComment(final SucUserDriverMo mo, @RequestParam(value = "pageNum", required = false) Integer pageNum, @RequestParam(value = "pageSize", required = false) Integer pageSize) {
         log.info("received get:/suc/user-driver");
         log.info("userDriverCtrl.list: {},pageNum-{},pageSize-{}", mo, pageNum, pageSize);
         if (pageNum == null) {
@@ -143,7 +144,7 @@ public class SucUserDriverCtrl {
             log.error(msg);
             throw new IllegalArgumentException(msg);
         }
-        final PageInfo<SucUserDriverMo> result = svc.list(mo, pageNum, pageSize);
+        final PageInfo<UserDriverRo> result = svc.listUserComment(mo, pageNum, pageSize);
         log.info("result: " + result);
         return result;
     }

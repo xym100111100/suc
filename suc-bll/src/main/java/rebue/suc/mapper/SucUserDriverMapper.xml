@@ -377,4 +377,53 @@
       </if>
     </where>
   </select>
+  
+  
+    <select id="listUserComment" parameterType="rebue.suc.mo.SucUserDriverMo" resultType="rebue.suc.Ro.UserDriverRo">
+    <!--
+		和list的区别就是返回值不一样
+    -->
+    select 
+    <include refid="Base_Column_List" />
+    from SUC_USER_DRIVER
+    <where>
+      <if test="driverId != null">
+        and DRIVER_ID = #{driverId,jdbcType=BIGINT}
+      </if>
+      <if test="userId != null">
+        and USER_ID = #{userId,jdbcType=BIGINT}
+      </if>
+      <if test="state != null">
+        and STATE = #{state,jdbcType=TINYINT}
+      </if>
+      <if test="fieldId != null">
+        and FIELD_ID = #{fieldId,jdbcType=BIGINT}
+      </if>
+      <if test="signupTime != null">
+        and SIGNUP_TIME = #{signupTime,jdbcType=DATE}
+      </if>
+      <if test="cancelTime != null">
+        and CANCEL_TIME = #{cancelTime,jdbcType=DATE}
+      </if>
+      <if test="signingTime != null">
+        and SIGNING_TIMe = #{signingTime,jdbcType=DATE}
+      </if>
+      <if test="finishTime != null">
+        and FINISH_TIME = #{finishTime,jdbcType=DATE}
+      </if>
+      <if test="cancelReason != null and cancelReason != ''">
+        and CANCEL_REASON = #{cancelReason,jdbcType=CHAR}
+      </if>
+      <if test="comment != null and comment != ''">
+        and COMMENT = #{comment,jdbcType=VARCHAR}
+      </if>
+      <if test="rate != null">
+        and RATE = #{rate,jdbcType=DECIMAL}
+      </if>
+      <if test="recommender != null and recommender != ''">
+        and RECOMMENDER = #{recommender,jdbcType=VARCHAR}
+      </if>
+    </where>
+  </select>
+  
 </mapper>

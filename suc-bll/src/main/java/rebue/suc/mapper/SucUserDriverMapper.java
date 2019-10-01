@@ -3,6 +3,7 @@ package rebue.suc.mapper;
 import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 import rebue.robotech.mapper.MybatisBaseMapper;
+import rebue.suc.Ro.UserDriverRo;
 import rebue.suc.mo.SucUserDriverMo;
 
 @Mapper
@@ -62,4 +63,9 @@ public interface SucUserDriverMapper extends MybatisBaseMapper<SucUserDriverMo, 
      *    @mbg.generated 自动生成，如需修改，请删除本行
      */
     int countSelective(SucUserDriverMo record);
+    
+    /**
+     *    @mbg.generated 自动生成，如需修改，请删除本行
+     */
+    List<UserDriverRo> listUserComment(SucUserDriverMo record);
 }
