@@ -1,5 +1,6 @@
 package rebue.suc.ctrl;
 
+import com.github.dozermapper.core.Mapper;
 import com.github.pagehelper.PageInfo;
 import javax.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
@@ -14,8 +15,11 @@ import org.springframework.web.bind.annotation.RestController;
 import rebue.robotech.dic.ResultDic;
 import rebue.robotech.ro.IdRo;
 import rebue.robotech.ro.Ro;
+import rebue.suc.Ro.OneUserDriverRo;
 import rebue.suc.Ro.UserDriverRo;
+import rebue.suc.mo.SucTainingAddrMo;
 import rebue.suc.mo.SucUserDriverMo;
+import rebue.suc.svc.SucTainingAddrSvc;
 import rebue.suc.svc.SucUserDriverSvc;
 
 /**
@@ -30,6 +34,11 @@ public class SucUserDriverCtrl {
 	 */
 	@Resource
 	private SucUserDriverSvc svc;
+
+	@Resource
+	private SucTainingAddrSvc sucTainingAddrSvc;
+	@Resource
+	private Mapper dozerMapper;
 
 	/**
 	 * 添加
@@ -168,15 +177,19 @@ public class SucUserDriverCtrl {
 	 *
 	 */
 	@GetMapping("/suc/user-driver/get-one")
-	SucUserDriverMo getOne(final SucUserDriverMo mo) {
-		log.info("received get:/suc/user-driver/get-one");
-		log.info("userDriverCtrl.get-one: {}", mo);
-		SucUserDriverMo result =  svc.getOne(mo);
-		if(result != null) {
+	OneUserDriverRo getOne(final SucUserDriverMo mo) {
+		log.info("获取一个学生驾校信息.get-one: {}", mo);
+		SucUserDriverMo userDriverResult = svc.getOne(mo);
+		log.info("获取一个学生驾校结果-: {}", userDriverResult);
+		if (userDriverResult != null) {
+			SucTainingAddrMo tainingResult = sucTainingAddrSvc.getById(userDriverResult.getTainingId());
+			OneUserDriverRo result = dozerMapper.map(userDriverResult, OneUserDriverRo.class);
+			result.setTainingName(tainingResult.getTrainingAddr());
+			log.info("获取一个学生驾校即将返回的结果-: {}", result);
 			return result;
-		}else {
-			return new SucUserDriverMo();
+		} else {
+			return new OneUserDriverRo();
 		}
-		 
+
 	}
 }
