@@ -170,6 +170,15 @@ public class SucUserDriverJo implements Serializable {
     private Long mobilePhone;
 
     /**
+     * 合约图片路径
+     *
+     * @mbg.generated 自动生成，如需修改，请删除本行
+     */
+    @Basic(optional = true)
+    @Column(name = "CONTRACT_PATH", nullable = true, length = 200)
+    private String contractPath;
+
+    /**
      * @mbg.generated 自动生成，如需修改，请删除本行
      */
     @Override

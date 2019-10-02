@@ -2,6 +2,9 @@ package rebue.suc.ctrl;
 
 import com.github.dozermapper.core.Mapper;
 import com.github.pagehelper.PageInfo;
+
+import java.util.Date;
+
 import javax.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.dao.DuplicateKeyException;
@@ -90,6 +93,15 @@ public class SucUserDriverCtrl {
 	Ro modify(@RequestBody final SucUserDriverMo mo) throws Exception {
 		log.info("received put:/suc/user-driver");
 		log.info("userDriverCtrl.modify: {}", mo);
+		if(mo.getState() ==(byte) 2) {
+			// 设置签约时间
+			mo.setSigningTime(new Date());
+		}
+		
+		if(mo.getState() ==(byte) 4) {
+			// 设置完成时间
+			mo.setFinishTime(new Date());
+		}
 		try {
 			if (svc.modify(mo) == 1) {
 				final String msg = "修改成功";

@@ -31,5 +31,7 @@ public class OneUserDriverRo {
     private Long rate;
     
     private String comment;
+    
+    private String contractPath;
 
 }

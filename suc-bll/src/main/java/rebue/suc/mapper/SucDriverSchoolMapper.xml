@@ -23,6 +23,7 @@
     <result column="ALL_RATE" jdbcType="DECIMAL" property="allRate" />
     <result column="SIGNUP_PRICE" jdbcType="INTEGER" property="signupPrice" />
     <result column="ALL_PRICE" jdbcType="INTEGER" property="allPrice" />
+    <result column="TAINING_AREA" jdbcType="INTEGER" property="tainingArea" />
   </resultMap>
   <sql id="Base_Column_List">
     <!--
@@ -31,7 +32,7 @@
     -->
     ID, DRIVER_NAME, DRIVER_REMARK, FOUND_TIME, ADDRESS, YEAR_STUDENT, PASSING_RATE, 
     DELIVER_DETAIL, DRIVER_IMG, SCHOOL_DETAIL, TEACHER_COUNT, CAR_COUNT, TRAINING_COUNT, 
-    CREAT_TIME, ALL_RATE, SIGNUP_PRICE, ALL_PRICE
+    CREAT_TIME, ALL_RATE, SIGNUP_PRICE, ALL_PRICE, TAINING_AREA
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     <!--
@@ -61,13 +62,15 @@
       PASSING_RATE, DELIVER_DETAIL, DRIVER_IMG, 
       SCHOOL_DETAIL, TEACHER_COUNT, CAR_COUNT, 
       TRAINING_COUNT, CREAT_TIME, ALL_RATE, 
-      SIGNUP_PRICE, ALL_PRICE)
+      SIGNUP_PRICE, ALL_PRICE, TAINING_AREA
+      )
     values (#{id,jdbcType=BIGINT}, #{driverName,jdbcType=VARCHAR}, #{driverRemark,jdbcType=VARCHAR}, 
       #{foundTime,jdbcType=DATE}, #{address,jdbcType=VARCHAR}, #{yearStudent,jdbcType=BIGINT}, 
       #{passingRate,jdbcType=TINYINT}, #{deliverDetail,jdbcType=VARCHAR}, #{driverImg,jdbcType=VARCHAR}, 
       #{schoolDetail,jdbcType=VARCHAR}, #{teacherCount,jdbcType=INTEGER}, #{carCount,jdbcType=INTEGER}, 
       #{trainingCount,jdbcType=INTEGER}, #{creatTime,jdbcType=DATE}, #{allRate,jdbcType=DECIMAL}, 
-      #{signupPrice,jdbcType=INTEGER}, #{allPrice,jdbcType=INTEGER})
+      #{signupPrice,jdbcType=INTEGER}, #{allPrice,jdbcType=INTEGER}, #{tainingArea,jdbcType=INTEGER}
+      )
   </insert>
   <insert id="insertSelective" parameterType="rebue.suc.mo.SucDriverSchoolMo">
     <!--
@@ -127,6 +130,9 @@
       <if test="allPrice != null">
         ALL_PRICE,
       </if>
+      <if test="tainingArea != null">
+        TAINING_AREA,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -179,6 +185,9 @@
       </if>
       <if test="allPrice != null">
         #{allPrice,jdbcType=INTEGER},
+      </if>
+      <if test="tainingArea != null">
+        #{tainingArea,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
@@ -237,6 +246,9 @@
       <if test="allPrice != null">
         ALL_PRICE = #{allPrice,jdbcType=INTEGER},
       </if>
+      <if test="tainingArea != null">
+        TAINING_AREA = #{tainingArea,jdbcType=INTEGER},
+      </if>
     </set>
     where ID = #{id,jdbcType=BIGINT}
   </update>
@@ -261,7 +273,8 @@
       CREAT_TIME = #{creatTime,jdbcType=DATE},
       ALL_RATE = #{allRate,jdbcType=DECIMAL},
       SIGNUP_PRICE = #{signupPrice,jdbcType=INTEGER},
-      ALL_PRICE = #{allPrice,jdbcType=INTEGER}
+      ALL_PRICE = #{allPrice,jdbcType=INTEGER},
+      TAINING_AREA = #{tainingArea,jdbcType=INTEGER}
     where ID = #{id,jdbcType=BIGINT}
   </update>
   <select id="selectAll" resultMap="BaseResultMap">
@@ -271,7 +284,7 @@
     -->
     select ID, DRIVER_NAME, DRIVER_REMARK, FOUND_TIME, ADDRESS, YEAR_STUDENT, PASSING_RATE, 
     DELIVER_DETAIL, DRIVER_IMG, SCHOOL_DETAIL, TEACHER_COUNT, CAR_COUNT, TRAINING_COUNT, 
-    CREAT_TIME, ALL_RATE, SIGNUP_PRICE, ALL_PRICE
+    CREAT_TIME, ALL_RATE, SIGNUP_PRICE, ALL_PRICE, TAINING_AREA
     from SUC_DRIVER_SCHOOL
   </select>
   <select id="selectSelective" parameterType="rebue.suc.mo.SucDriverSchoolMo" resultMap="BaseResultMap">
@@ -330,6 +343,9 @@
       </if>
       <if test="allPrice != null">
         and ALL_PRICE = #{allPrice,jdbcType=INTEGER}
+      </if>
+      <if test="tainingArea != null">
+        and TAINING_AREA = #{tainingArea,jdbcType=INTEGER}
       </if>
     </where>
   </select>
@@ -401,6 +417,9 @@
       <if test="allPrice != null and allPrice != ''">
         and ALL_PRICE = #{allPrice,jdbcType=INTEGER}
       </if>
+      <if test="tainingArea != null and tainingArea != ''">
+        and TAINING_AREA = #{tainingArea,jdbcType=INTEGER}
+      </if>
     </where>
   </select>
   <select id="countSelective" parameterType="rebue.suc.mo.SucDriverSchoolMo" resultType="int">
@@ -458,6 +477,9 @@
       </if>
       <if test="allPrice != null">
         and ALL_PRICE = #{allPrice,jdbcType=INTEGER}
+      </if>
+      <if test="tainingArea != null">
+        and TAINING_AREA = #{tainingArea,jdbcType=INTEGER}
       </if>
     </where>
   </select>
