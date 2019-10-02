@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import rebue.robotech.dic.ResultDic;
 import rebue.robotech.ro.IdRo;
 import rebue.robotech.ro.Ro;
+import rebue.suc.Ro.DriverSchoolRo;
 import rebue.suc.mo.SucDriverSchoolMo;
 import rebue.suc.svc.SucDriverSchoolSvc;
 
@@ -137,7 +138,7 @@ public class SucDriverSchoolCtrl {
             pageNum = 1;
         }
         if (pageSize == null) {
-            pageSize = 5;
+            pageSize = 8;
         }
         log.info("list SucDriverSchoolMo:" + mo + ", pageNum = " + pageNum + ", pageSize = " + pageSize);
         if (pageSize > 50) {
@@ -160,5 +161,16 @@ public class SucDriverSchoolCtrl {
         log.info("received get:/suc/driver-school/get-by-id");
         log.info("driverSchoolCtrl.getById: {}", id);
         return svc.getById(id);
+    }
+    
+    /**
+     * 获取单个驾校信息
+     *
+     */
+    @GetMapping("/suc/driver-school/get-one-by-id")
+    DriverSchoolRo getOneById(@RequestParam("id") final java.lang.Long id) {
+        log.info("received get:/suc/driver-school/get-by-id");
+        log.info("driverSchoolCtrl.getOneById: {}", id);
+        return svc.getOneById(id);
     }
 }

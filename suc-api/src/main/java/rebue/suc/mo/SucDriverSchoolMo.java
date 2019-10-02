@@ -102,11 +102,20 @@ public class SucDriverSchoolMo implements Serializable {
     /**
     驾校详情(驾校优势之类)
     
-    数据库字段: SUC_DRIVER_SCHOOL.DRIVER_DETAIL
+    数据库字段: SUC_DRIVER_SCHOOL.SCHOOL_DETAIL
     
     @mbg.generated 自动生成，如需修改，请删除本行
     */
-    private String driverDetail;
+    private String schoolDetail;
+
+    /**
+    教练数量
+    
+    数据库字段: SUC_DRIVER_SCHOOL.TEACHER_COUNT
+    
+    @mbg.generated 自动生成，如需修改，请删除本行
+    */
+    private Integer teacherCount;
 
     /**
     训练车数量
@@ -144,16 +153,25 @@ public class SucDriverSchoolMo implements Serializable {
     
     @mbg.generated 自动生成，如需修改，请删除本行
     */
-    private Integer allRate;
+    private Long allRate;
 
     /**
-    学校详情(驾校的优势等)
+    报名费
     
-    数据库字段: SUC_DRIVER_SCHOOL.SCHOOL_DETAIL
+    数据库字段: SUC_DRIVER_SCHOOL.SIGNUP_PRICE
     
     @mbg.generated 自动生成，如需修改，请删除本行
     */
-    private String schoolDetail;
+    private Integer signupPrice;
+
+    /**
+    全包费
+    
+    数据库字段: SUC_DRIVER_SCHOOL.ALL_PRICE
+    
+    @mbg.generated 自动生成，如需修改，请删除本行
+    */
+    private Integer allPrice;
 
     /**
     @mbg.generated 自动生成，如需修改，请删除本行
@@ -361,23 +379,45 @@ public class SucDriverSchoolMo implements Serializable {
     /**
     驾校详情(驾校优势之类)
     
-    数据库字段: SUC_DRIVER_SCHOOL.DRIVER_DETAIL
+    数据库字段: SUC_DRIVER_SCHOOL.SCHOOL_DETAIL
     
     @mbg.generated 自动生成，如需修改，请删除本行
     */
-    public String getDriverDetail() {
-        return driverDetail;
+    public String getSchoolDetail() {
+        return schoolDetail;
     }
 
     /**
     驾校详情(驾校优势之类)
     
-    数据库字段: SUC_DRIVER_SCHOOL.DRIVER_DETAIL
+    数据库字段: SUC_DRIVER_SCHOOL.SCHOOL_DETAIL
     
     @mbg.generated 自动生成，如需修改，请删除本行
     */
-    public void setDriverDetail(String driverDetail) {
-        this.driverDetail = driverDetail;
+    public void setSchoolDetail(String schoolDetail) {
+        this.schoolDetail = schoolDetail;
+    }
+
+    /**
+    教练数量
+    
+    数据库字段: SUC_DRIVER_SCHOOL.TEACHER_COUNT
+    
+    @mbg.generated 自动生成，如需修改，请删除本行
+    */
+    public Integer getTeacherCount() {
+        return teacherCount;
+    }
+
+    /**
+    教练数量
+    
+    数据库字段: SUC_DRIVER_SCHOOL.TEACHER_COUNT
+    
+    @mbg.generated 自动生成，如需修改，请删除本行
+    */
+    public void setTeacherCount(Integer teacherCount) {
+        this.teacherCount = teacherCount;
     }
 
     /**
@@ -453,7 +493,7 @@ public class SucDriverSchoolMo implements Serializable {
     
     @mbg.generated 自动生成，如需修改，请删除本行
     */
-    public Integer getAllRate() {
+    public Long getAllRate() {
         return allRate;
     }
 
@@ -464,30 +504,52 @@ public class SucDriverSchoolMo implements Serializable {
     
     @mbg.generated 自动生成，如需修改，请删除本行
     */
-    public void setAllRate(Integer allRate) {
+    public void setAllRate(Long allRate) {
         this.allRate = allRate;
     }
 
     /**
-    学校详情(驾校的优势等)
+    报名费
     
-    数据库字段: SUC_DRIVER_SCHOOL.SCHOOL_DETAIL
+    数据库字段: SUC_DRIVER_SCHOOL.SIGNUP_PRICE
     
     @mbg.generated 自动生成，如需修改，请删除本行
     */
-    public String getSchoolDetail() {
-        return schoolDetail;
+    public Integer getSignupPrice() {
+        return signupPrice;
     }
 
     /**
-    学校详情(驾校的优势等)
+    报名费
     
-    数据库字段: SUC_DRIVER_SCHOOL.SCHOOL_DETAIL
+    数据库字段: SUC_DRIVER_SCHOOL.SIGNUP_PRICE
     
     @mbg.generated 自动生成，如需修改，请删除本行
     */
-    public void setSchoolDetail(String schoolDetail) {
-        this.schoolDetail = schoolDetail;
+    public void setSignupPrice(Integer signupPrice) {
+        this.signupPrice = signupPrice;
+    }
+
+    /**
+    全包费
+    
+    数据库字段: SUC_DRIVER_SCHOOL.ALL_PRICE
+    
+    @mbg.generated 自动生成，如需修改，请删除本行
+    */
+    public Integer getAllPrice() {
+        return allPrice;
+    }
+
+    /**
+    全包费
+    
+    数据库字段: SUC_DRIVER_SCHOOL.ALL_PRICE
+    
+    @mbg.generated 自动生成，如需修改，请删除本行
+    */
+    public void setAllPrice(Integer allPrice) {
+        this.allPrice = allPrice;
     }
 
     /**
@@ -508,12 +570,14 @@ public class SucDriverSchoolMo implements Serializable {
         sb.append(", passingRate=").append(passingRate);
         sb.append(", deliverDetail=").append(deliverDetail);
         sb.append(", driverImg=").append(driverImg);
-        sb.append(", driverDetail=").append(driverDetail);
+        sb.append(", schoolDetail=").append(schoolDetail);
+        sb.append(", teacherCount=").append(teacherCount);
         sb.append(", carCount=").append(carCount);
         sb.append(", trainingCount=").append(trainingCount);
         sb.append(", creatTime=").append(creatTime);
         sb.append(", allRate=").append(allRate);
-        sb.append(", schoolDetail=").append(schoolDetail);
+        sb.append(", signupPrice=").append(signupPrice);
+        sb.append(", allPrice=").append(allPrice);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

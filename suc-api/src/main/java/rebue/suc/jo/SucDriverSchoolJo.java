@@ -117,9 +117,18 @@ public class SucDriverSchoolJo implements Serializable {
      *
      * @mbg.generated 自动生成，如需修改，请删除本行
      */
-    @Basic(optional = true)
-    @Column(name = "DRIVER_DETAIL", nullable = true, length = 500)
-    private String driverDetail;
+    @Basic(optional = false)
+    @Column(name = "SCHOOL_DETAIL", nullable = false, length = 500)
+    private String schoolDetail;
+
+    /**
+     * 教练数量
+     *
+     * @mbg.generated 自动生成，如需修改，请删除本行
+     */
+    @Basic(optional = false)
+    @Column(name = "TEACHER_COUNT", nullable = false, length = 10)
+    private Integer teacherCount;
 
     /**
      * 训练车数量
@@ -155,17 +164,26 @@ public class SucDriverSchoolJo implements Serializable {
      * @mbg.generated 自动生成，如需修改，请删除本行
      */
     @Basic(optional = false)
-    @Column(name = "ALL_RATE", nullable = false, length = 8)
-    private Integer allRate;
+    @Column(name = "ALL_RATE", nullable = false, length = 10)
+    private Long allRate;
 
     /**
-     * 学校详情
+     * 报名费
      *
      * @mbg.generated 自动生成，如需修改，请删除本行
      */
     @Basic(optional = false)
-    @Column(name = "SCHOOL_DETAIL", nullable = false, length = 20)
-    private String schoolDetail;
+    @Column(name = "SIGNUP_PRICE", nullable = false, length = 10)
+    private Integer signupPrice;
+
+    /**
+     * 全包费
+     *
+     * @mbg.generated 自动生成，如需修改，请删除本行
+     */
+    @Basic(optional = false)
+    @Column(name = "ALL_PRICE", nullable = false, length = 10)
+    private Integer allPrice;
 
     /**
      * @mbg.generated 自动生成，如需修改，请删除本行

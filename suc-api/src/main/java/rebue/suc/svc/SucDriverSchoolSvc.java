@@ -1,6 +1,6 @@
 package rebue.suc.svc;
-
 import rebue.robotech.svc.BaseSvc;
+import rebue.suc.Ro.DriverSchoolRo;
 import rebue.suc.jo.SucDriverSchoolJo;
 import rebue.suc.mo.SucDriverSchoolMo;
 
@@ -10,4 +10,8 @@ import rebue.suc.mo.SucDriverSchoolMo;
  * @mbg.generated 自动生成的注释，如需修改本注释，请删除本行
  */
 public interface SucDriverSchoolSvc extends BaseSvc<java.lang.Long, SucDriverSchoolMo, SucDriverSchoolJo> {
+	
+	
+	DriverSchoolRo getOneById(Long id);
+
 }

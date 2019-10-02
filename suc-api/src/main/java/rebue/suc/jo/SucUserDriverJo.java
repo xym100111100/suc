@@ -44,8 +44,8 @@ public class SucUserDriverJo implements Serializable {
      *
      * @mbg.generated 自动生成，如需修改，请删除本行
      */
-    @Basic(optional = true)
-    @Column(name = "DRIVER_ID", nullable = true, length = 19)
+    @Basic(optional = false)
+    @Column(name = "DRIVER_ID", nullable = false, length = 19)
     private Long driverId;
 
     /**
@@ -72,8 +72,8 @@ public class SucUserDriverJo implements Serializable {
      * @mbg.generated 自动生成，如需修改，请删除本行
      */
     @Basic(optional = false)
-    @Column(name = "FIELD_ID", nullable = false, length = 19)
-    private Long fieldId;
+    @Column(name = "TAINING_ID", nullable = false, length = 19)
+    private Long tainingId;
 
     /**
      * 驾校报名时间
@@ -101,7 +101,7 @@ public class SucUserDriverJo implements Serializable {
      * @mbg.generated 自动生成，如需修改，请删除本行
      */
     @Basic(optional = true)
-    @Column(name = "SIGNING_TIMe", nullable = true, length = 10)
+    @Column(name = "SIGNING_TIME", nullable = true, length = 10)
     @Temporal(TemporalType.DATE)
     private Date signingTime;
 
@@ -139,8 +139,8 @@ public class SucUserDriverJo implements Serializable {
      * @mbg.generated 自动生成，如需修改，请删除本行
      */
     @Basic(optional = true)
-    @Column(name = "RATE", nullable = true, length = 8)
-    private Integer rate;
+    @Column(name = "RATE", nullable = true, length = 10)
+    private Long rate;
 
     /**
      * 推荐人
@@ -150,6 +150,24 @@ public class SucUserDriverJo implements Serializable {
     @Basic(optional = true)
     @Column(name = "RECOMMENDER", nullable = true, length = 10)
     private String recommender;
+
+    /**
+     * 用户名字
+     *
+     * @mbg.generated 自动生成，如需修改，请删除本行
+     */
+    @Basic(optional = false)
+    @Column(name = "USER_NAME", nullable = false, length = 10)
+    private String userName;
+
+    /**
+     * 手机号码
+     *
+     * @mbg.generated 自动生成，如需修改，请删除本行
+     */
+    @Basic(optional = true)
+    @Column(name = "MOBILE_PHONE", nullable = true, length = 19)
+    private Long mobilePhone;
 
     /**
      * @mbg.generated 自动生成，如需修改，请删除本行
