@@ -27,7 +27,7 @@ public class SucUserJo implements Serializable {
     private static final long serialVersionUID = 1L;
 
     /**
-     * 用户驾校ID
+     * 用户ID
      *
      * @mbg.generated 自动生成，如需修改，请删除本行
      */
@@ -64,6 +64,15 @@ public class SucUserJo implements Serializable {
     private String wxOpenid;
 
     /**
+     * 学校名字
+     *
+     * @mbg.generated 自动生成，如需修改，请删除本行
+     */
+    @Basic(optional = false)
+    @Column(name = "SCHOOL_NAME", nullable = false, length = 50)
+    private String schoolName;
+
+    /**
      * 修改时间戳
      *
      * @mbg.generated 自动生成，如需修改，请删除本行
@@ -71,15 +80,6 @@ public class SucUserJo implements Serializable {
     @Basic(optional = false)
     @Column(name = "MODIFIED_TIMESTAMP", nullable = false, length = 19)
     private Long modifiedTimestamp;
-
-    /**
-     * 学校名字
-     *
-     * @mbg.generated 自动生成，如需修改，请删除本行
-     */
-    @Basic(optional = true)
-    @Column(name = "SCHOOL_NAME", nullable = true, length = 2147483647)
-    private String schoolName;
 
     /**
      * @mbg.generated 自动生成，如需修改，请删除本行

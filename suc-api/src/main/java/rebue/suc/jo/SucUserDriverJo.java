@@ -40,15 +40,6 @@ public class SucUserDriverJo implements Serializable {
     private Long id;
 
     /**
-     * 驾校ID
-     *
-     * @mbg.generated 自动生成，如需修改，请删除本行
-     */
-    @Basic(optional = false)
-    @Column(name = "DRIVER_ID", nullable = false, length = 19)
-    private Long driverId;
-
-    /**
      * 用户ID
      *
      * @mbg.generated 自动生成，如需修改，请删除本行
@@ -121,7 +112,7 @@ public class SucUserDriverJo implements Serializable {
      * @mbg.generated 自动生成，如需修改，请删除本行
      */
     @Basic(optional = true)
-    @Column(name = "CANCEL_REASON", nullable = true, length = 10)
+    @Column(name = "CANCEL_REASON", nullable = true, length = 200)
     private String cancelReason;
 
     /**
@@ -165,8 +156,8 @@ public class SucUserDriverJo implements Serializable {
      *
      * @mbg.generated 自动生成，如需修改，请删除本行
      */
-    @Basic(optional = true)
-    @Column(name = "MOBILE_PHONE", nullable = true, length = 19)
+    @Basic(optional = false)
+    @Column(name = "MOBILE_PHONE", nullable = false, length = 19)
     private Long mobilePhone;
 
     /**

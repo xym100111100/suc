@@ -27,15 +27,6 @@ public class SucUserDriverMo implements Serializable {
     private Long id;
 
     /**
-     *    驾校ID
-     *
-     *    数据库字段: SUC_USER_DRIVER.DRIVER_ID
-     *
-     *    @mbg.generated 自动生成，如需修改，请删除本行
-     */
-    private Long driverId;
-
-    /**
      *    用户ID
      *
      *    数据库字段: SUC_USER_DRIVER.USER_ID
@@ -45,7 +36,7 @@ public class SucUserDriverMo implements Serializable {
     private Long userId;
 
     /**
-     *    状态(0：已作废 1:已报名 2：已签协议 3：已完成：)
+     *    状态(0：已作废 1:已报名 2：已签协议 3：已验证确实是报名已拿证学员4：已经完成：)
      *
      *    数据库字段: SUC_USER_DRIVER.STATE
      *
@@ -197,28 +188,6 @@ public class SucUserDriverMo implements Serializable {
     }
 
     /**
-     *    驾校ID
-     *
-     *    数据库字段: SUC_USER_DRIVER.DRIVER_ID
-     *
-     *    @mbg.generated 自动生成，如需修改，请删除本行
-     */
-    public Long getDriverId() {
-        return driverId;
-    }
-
-    /**
-     *    驾校ID
-     *
-     *    数据库字段: SUC_USER_DRIVER.DRIVER_ID
-     *
-     *    @mbg.generated 自动生成，如需修改，请删除本行
-     */
-    public void setDriverId(Long driverId) {
-        this.driverId = driverId;
-    }
-
-    /**
      *    用户ID
      *
      *    数据库字段: SUC_USER_DRIVER.USER_ID
@@ -241,7 +210,7 @@ public class SucUserDriverMo implements Serializable {
     }
 
     /**
-     *    状态(0：已作废 1:已报名 2：已签协议 3：已完成：)
+     *    状态(0：已作废 1:已报名 2：已签协议 3：已验证确实是报名已拿证学员4：已经完成：)
      *
      *    数据库字段: SUC_USER_DRIVER.STATE
      *
@@ -252,7 +221,7 @@ public class SucUserDriverMo implements Serializable {
     }
 
     /**
-     *    状态(0：已作废 1:已报名 2：已签协议 3：已完成：)
+     *    状态(0：已作废 1:已报名 2：已签协议 3：已验证确实是报名已拿证学员4：已经完成：)
      *
      *    数据库字段: SUC_USER_DRIVER.STATE
      *
@@ -536,7 +505,6 @@ public class SucUserDriverMo implements Serializable {
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
         sb.append(", id=").append(id);
-        sb.append(", driverId=").append(driverId);
         sb.append(", userId=").append(userId);
         sb.append(", state=").append(state);
         sb.append(", tainingId=").append(tainingId);
