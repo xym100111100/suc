@@ -8,8 +8,6 @@ import java.util.Date;
 import org.springframework.format.annotation.DateTimeFormat;
 
 /**
- * 用户驾校信息
- *
  * 数据库表: SUC_USER_DRIVER
  *
  * @mbg.generated 自动生成的注释，如需修改本注释，请删除本行
@@ -159,6 +157,15 @@ public class SucUserDriverMo implements Serializable {
      *    @mbg.generated 自动生成，如需修改，请删除本行
      */
     private String contractPath;
+
+    /**
+     *    驾校ID
+     *
+     *    数据库字段: SUC_USER_DRIVER.DRIVER_ID
+     *
+     *    @mbg.generated 自动生成，如需修改，请删除本行
+     */
+    private Long driverId;
 
     /**
      *    @mbg.generated 自动生成，如需修改，请删除本行
@@ -496,6 +503,28 @@ public class SucUserDriverMo implements Serializable {
     }
 
     /**
+     *    驾校ID
+     *
+     *    数据库字段: SUC_USER_DRIVER.DRIVER_ID
+     *
+     *    @mbg.generated 自动生成，如需修改，请删除本行
+     */
+    public Long getDriverId() {
+        return driverId;
+    }
+
+    /**
+     *    驾校ID
+     *
+     *    数据库字段: SUC_USER_DRIVER.DRIVER_ID
+     *
+     *    @mbg.generated 自动生成，如需修改，请删除本行
+     */
+    public void setDriverId(Long driverId) {
+        this.driverId = driverId;
+    }
+
+    /**
      *    @mbg.generated 自动生成，如需修改，请删除本行
      */
     @Override
@@ -519,6 +548,7 @@ public class SucUserDriverMo implements Serializable {
         sb.append(", userName=").append(userName);
         sb.append(", mobilePhone=").append(mobilePhone);
         sb.append(", contractPath=").append(contractPath);
+        sb.append(", driverId=").append(driverId);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

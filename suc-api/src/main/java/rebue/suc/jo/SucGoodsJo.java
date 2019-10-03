@@ -14,15 +14,15 @@ import lombok.Setter;
 import lombok.ToString;
 
 /**
- * The persistent class for the SUC_USER_DRIVER database table.
+ * The persistent class for the SUC_GOODS database table.
  * @mbg.generated 自动生成，如需修改，请删除本行
  */
 @Entity
-@Table(name = "SUC_USER_DRIVER")
+@Table(name = "SUC_GOODS")
 @Getter
 @Setter
 @ToString
-public class SucUserDriverJo implements Serializable {
+public class SucGoodsJo implements Serializable {
 
     /**
      * @mbg.generated 自动生成，如需修改，请删除本行
@@ -30,7 +30,7 @@ public class SucUserDriverJo implements Serializable {
     private static final long serialVersionUID = 1L;
 
     /**
-     * 用户驾校ID
+     * 商品ID
      *
      * @mbg.generated 自动生成，如需修改，请删除本行
      */
@@ -38,6 +38,106 @@ public class SucUserDriverJo implements Serializable {
     @Basic(optional = false)
     @Column(name = "ID", nullable = false, length = 19)
     private Long id;
+
+    /**
+     * 分类ID
+     *
+     * @mbg.generated 自动生成，如需修改，请删除本行
+     */
+    @Basic(optional = false)
+    @Column(name = "CLASS_ID", nullable = false, length = 19)
+    private Long classId;
+
+    /**
+     * 商品标题
+     *
+     * @mbg.generated 自动生成，如需修改，请删除本行
+     */
+    @Basic(optional = false)
+    @Column(name = "GOOD_TITLE", nullable = false, length = 50)
+    private String goodTitle;
+
+    /**
+     * 商品详情
+     *
+     * @mbg.generated 自动生成，如需修改，请删除本行
+     */
+    @Basic(optional = false)
+    @Column(name = "GOOD_DETAIL", nullable = false, length = 200)
+    private String goodDetail;
+
+    /**
+     * 上线状态
+     *
+     * @mbg.generated 自动生成，如需修改，请删除本行
+     */
+    @Basic(optional = false)
+    @Column(name = "STATE", nullable = false, length = 1)
+    private Boolean state;
+
+    /**
+     * 商品类型
+     *
+     * @mbg.generated 自动生成，如需修改，请删除本行
+     */
+    @Basic(optional = false)
+    @Column(name = "GOOD_TYPE", nullable = false, length = 3)
+    private Byte goodType;
+
+    /**
+     * 原价
+     *
+     * @mbg.generated 自动生成，如需修改，请删除本行
+     */
+    @Basic(optional = false)
+    @Column(name = "OLD_PRICE", nullable = false, length = 10)
+    private Integer oldPrice;
+
+    /**
+     * 现价
+     *
+     * @mbg.generated 自动生成，如需修改，请删除本行
+     */
+    @Basic(optional = false)
+    @Column(name = "NEW_PRICE", nullable = false, length = 10)
+    private Integer newPrice;
+
+    /**
+     * 购买时间
+     *
+     * @mbg.generated 自动生成，如需修改，请删除本行
+     */
+    @Basic(optional = true)
+    @Column(name = "BUY_TIME", nullable = true, length = 10)
+    @Temporal(TemporalType.DATE)
+    private Date buyTime;
+
+    /**
+     * 属于租借商品时候每天的价格
+     *
+     * @mbg.generated 自动生成，如需修改，请删除本行
+     */
+    @Basic(optional = true)
+    @Column(name = "PRICE_DAY", nullable = true, length = 10)
+    private Integer priceDay;
+
+    /**
+     * 即时出售/租
+     *
+     * @mbg.generated 自动生成，如需修改，请删除本行
+     */
+    @Basic(optional = false)
+    @Column(name = "IS_NOW_SELL", nullable = false, length = 1)
+    private Boolean isNowSell;
+
+    /**
+     * 是否可议价，商品出售的价格或者出租商品每天的价格是否可以商议
+     *
+     * @mbg.generated 自动生成，如需修改，请删除本行
+     */
+    @Basic(optional = false)
+    @Column(name = "IS_DISCUSS", nullable = false, length = 1)
+    private Boolean isDiscuss;
 
     /**
      * 用户ID
@@ -49,134 +149,14 @@ public class SucUserDriverJo implements Serializable {
     private Long userId;
 
     /**
-     * 状态
+     * 自动下线时间
      *
      * @mbg.generated 自动生成，如需修改，请删除本行
      */
     @Basic(optional = false)
-    @Column(name = "STATE", nullable = false, length = 3)
-    private Byte state;
-
-    /**
-     * 驾校训练场ID
-     *
-     * @mbg.generated 自动生成，如需修改，请删除本行
-     */
-    @Basic(optional = false)
-    @Column(name = "TAINING_ID", nullable = false, length = 19)
-    private Long tainingId;
-
-    /**
-     * 驾校报名时间
-     *
-     * @mbg.generated 自动生成，如需修改，请删除本行
-     */
-    @Basic(optional = false)
-    @Column(name = "SIGNUP_TIME", nullable = false, length = 10)
+    @Column(name = "AOTU_DOWN_TIME", nullable = false, length = 10)
     @Temporal(TemporalType.DATE)
-    private Date signupTime;
-
-    /**
-     * 作废时间
-     *
-     * @mbg.generated 自动生成，如需修改，请删除本行
-     */
-    @Basic(optional = true)
-    @Column(name = "CANCEL_TIME", nullable = true, length = 10)
-    @Temporal(TemporalType.DATE)
-    private Date cancelTime;
-
-    /**
-     * 签约时间
-     *
-     * @mbg.generated 自动生成，如需修改，请删除本行
-     */
-    @Basic(optional = true)
-    @Column(name = "SIGNING_TIME", nullable = true, length = 10)
-    @Temporal(TemporalType.DATE)
-    private Date signingTime;
-
-    /**
-     * 完成时间
-     *
-     * @mbg.generated 自动生成，如需修改，请删除本行
-     */
-    @Basic(optional = true)
-    @Column(name = "FINISH_TIME", nullable = true, length = 10)
-    @Temporal(TemporalType.DATE)
-    private Date finishTime;
-
-    /**
-     * 作废原因
-     *
-     * @mbg.generated 自动生成，如需修改，请删除本行
-     */
-    @Basic(optional = true)
-    @Column(name = "CANCEL_REASON", nullable = true, length = 200)
-    private String cancelReason;
-
-    /**
-     * 评论
-     *
-     * @mbg.generated 自动生成，如需修改，请删除本行
-     */
-    @Basic(optional = true)
-    @Column(name = "COMMENT", nullable = true, length = 400)
-    private String comment;
-
-    /**
-     * 评分
-     *
-     * @mbg.generated 自动生成，如需修改，请删除本行
-     */
-    @Basic(optional = true)
-    @Column(name = "RATE", nullable = true, length = 10)
-    private Long rate;
-
-    /**
-     * 推荐人
-     *
-     * @mbg.generated 自动生成，如需修改，请删除本行
-     */
-    @Basic(optional = true)
-    @Column(name = "RECOMMENDER", nullable = true, length = 10)
-    private String recommender;
-
-    /**
-     * 用户名字
-     *
-     * @mbg.generated 自动生成，如需修改，请删除本行
-     */
-    @Basic(optional = false)
-    @Column(name = "USER_NAME", nullable = false, length = 10)
-    private String userName;
-
-    /**
-     * 手机号码
-     *
-     * @mbg.generated 自动生成，如需修改，请删除本行
-     */
-    @Basic(optional = false)
-    @Column(name = "MOBILE_PHONE", nullable = false, length = 19)
-    private Long mobilePhone;
-
-    /**
-     * 合约图片路径
-     *
-     * @mbg.generated 自动生成，如需修改，请删除本行
-     */
-    @Basic(optional = true)
-    @Column(name = "CONTRACT_PATH", nullable = true, length = 200)
-    private String contractPath;
-
-    /**
-     * 驾校ID
-     *
-     * @mbg.generated 自动生成，如需修改，请删除本行
-     */
-    @Basic(optional = false)
-    @Column(name = "DRIVER_ID", nullable = false, length = 19)
-    private Long driverId;
+    private Date aotuDownTime;
 
     /**
      * @mbg.generated 自动生成，如需修改，请删除本行
@@ -200,7 +180,7 @@ public class SucUserDriverJo implements Serializable {
             return false;
         if (getClass() != obj.getClass())
             return false;
-        SucUserDriverJo other = (SucUserDriverJo) obj;
+        SucGoodsJo other = (SucGoodsJo) obj;
         if (id == null) {
             if (other.id != null)
                 return false;
