@@ -146,6 +146,15 @@ public class SucGoodsMo implements Serializable {
     private Date aotuDownTime;
 
     /**
+     *    学校名字(以便用户在搜索商品的时候是以学校为单位)
+     *
+     *    数据库字段: SUC_GOODS.SCHOOL_NAME
+     *
+     *    @mbg.generated 自动生成，如需修改，请删除本行
+     */
+    private String schoolName;
+
+    /**
      *    @mbg.generated 自动生成，如需修改，请删除本行
      */
     private static final long serialVersionUID = 1L;
@@ -459,6 +468,28 @@ public class SucGoodsMo implements Serializable {
     }
 
     /**
+     *    学校名字(以便用户在搜索商品的时候是以学校为单位)
+     *
+     *    数据库字段: SUC_GOODS.SCHOOL_NAME
+     *
+     *    @mbg.generated 自动生成，如需修改，请删除本行
+     */
+    public String getSchoolName() {
+        return schoolName;
+    }
+
+    /**
+     *    学校名字(以便用户在搜索商品的时候是以学校为单位)
+     *
+     *    数据库字段: SUC_GOODS.SCHOOL_NAME
+     *
+     *    @mbg.generated 自动生成，如需修改，请删除本行
+     */
+    public void setSchoolName(String schoolName) {
+        this.schoolName = schoolName;
+    }
+
+    /**
      *    @mbg.generated 自动生成，如需修改，请删除本行
      */
     @Override
@@ -481,6 +512,7 @@ public class SucGoodsMo implements Serializable {
         sb.append(", isDiscuss=").append(isDiscuss);
         sb.append(", userId=").append(userId);
         sb.append(", aotuDownTime=").append(aotuDownTime);
+        sb.append(", schoolName=").append(schoolName);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

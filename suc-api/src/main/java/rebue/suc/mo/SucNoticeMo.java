@@ -56,6 +56,15 @@ public class SucNoticeMo implements Serializable {
     private Date autoDownTime;
 
     /**
+     *    用户学校名称(以便搜索公告的时候是以学校为单位的)
+     *
+     *    数据库字段: SUC_NOTICE.SCHOOL_NAME
+     *
+     *    @mbg.generated 自动生成，如需修改，请删除本行
+     */
+    private String schoolName;
+
+    /**
      *    @mbg.generated 自动生成，如需修改，请删除本行
      */
     private static final long serialVersionUID = 1L;
@@ -149,6 +158,28 @@ public class SucNoticeMo implements Serializable {
     }
 
     /**
+     *    用户学校名称(以便搜索公告的时候是以学校为单位的)
+     *
+     *    数据库字段: SUC_NOTICE.SCHOOL_NAME
+     *
+     *    @mbg.generated 自动生成，如需修改，请删除本行
+     */
+    public String getSchoolName() {
+        return schoolName;
+    }
+
+    /**
+     *    用户学校名称(以便搜索公告的时候是以学校为单位的)
+     *
+     *    数据库字段: SUC_NOTICE.SCHOOL_NAME
+     *
+     *    @mbg.generated 自动生成，如需修改，请删除本行
+     */
+    public void setSchoolName(String schoolName) {
+        this.schoolName = schoolName;
+    }
+
+    /**
      *    @mbg.generated 自动生成，如需修改，请删除本行
      */
     @Override
@@ -161,6 +192,7 @@ public class SucNoticeMo implements Serializable {
         sb.append(", userId=").append(userId);
         sb.append(", noticeContent=").append(noticeContent);
         sb.append(", autoDownTime=").append(autoDownTime);
+        sb.append(", schoolName=").append(schoolName);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

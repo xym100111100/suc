@@ -75,7 +75,8 @@ public class SucUserCtrl {
     }
     
     /**
-     * 添加用户表
+     * 用户登录
+     * 
      */
     @PostMapping("/suc/user/user-login")
     UserLoginRo userLogin(@RequestBody final SucUserMo mo) throws Exception {

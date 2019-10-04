@@ -89,8 +89,8 @@ public class SucGoodsJo implements Serializable {
      *
      * @mbg.generated 自动生成，如需修改，请删除本行
      */
-    @Basic(optional = false)
-    @Column(name = "OLD_PRICE", nullable = false, length = 10)
+    @Basic(optional = true)
+    @Column(name = "OLD_PRICE", nullable = true, length = 10)
     private Integer oldPrice;
 
     /**
@@ -98,8 +98,8 @@ public class SucGoodsJo implements Serializable {
      *
      * @mbg.generated 自动生成，如需修改，请删除本行
      */
-    @Basic(optional = false)
-    @Column(name = "NEW_PRICE", nullable = false, length = 10)
+    @Basic(optional = true)
+    @Column(name = "NEW_PRICE", nullable = true, length = 10)
     private Integer newPrice;
 
     /**
@@ -157,6 +157,15 @@ public class SucGoodsJo implements Serializable {
     @Column(name = "AOTU_DOWN_TIME", nullable = false, length = 19)
     @Temporal(TemporalType.DATE)
     private Date aotuDownTime;
+
+    /**
+     * 学校名字
+     *
+     * @mbg.generated 自动生成，如需修改，请删除本行
+     */
+    @Basic(optional = false)
+    @Column(name = "SCHOOL_NAME", nullable = false, length = 20)
+    private String schoolName;
 
     /**
      * @mbg.generated 自动生成，如需修改，请删除本行

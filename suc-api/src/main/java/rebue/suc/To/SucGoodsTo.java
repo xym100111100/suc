@@ -43,5 +43,7 @@ public class SucGoodsTo {
     
     private Long userId;
     
+    private String schoolName;
+    
     private List<SucGoodsImgMo>  fileList;
 }

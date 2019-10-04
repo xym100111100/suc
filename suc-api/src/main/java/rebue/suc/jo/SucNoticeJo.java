@@ -68,6 +68,15 @@ public class SucNoticeJo implements Serializable {
     private Date autoDownTime;
 
     /**
+     * 用户学校名称
+     *
+     * @mbg.generated 自动生成，如需修改，请删除本行
+     */
+    @Basic(optional = false)
+    @Column(name = "SCHOOL_NAME", nullable = false, length = 20)
+    private String schoolName;
+
+    /**
      * @mbg.generated 自动生成，如需修改，请删除本行
      */
     @Override
