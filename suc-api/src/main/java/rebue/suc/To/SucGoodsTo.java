@@ -17,6 +17,8 @@ import rebue.suc.mo.SucGoodsImgMo;
 @Data
 public class SucGoodsTo {
 	
+	private Long id;
+	
     private Long classId;
     
     private String goodTitle;

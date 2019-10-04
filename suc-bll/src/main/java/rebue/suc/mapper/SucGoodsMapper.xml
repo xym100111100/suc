@@ -397,4 +397,55 @@
       </if>
     </where>
   </select>
+  
+   <select id="listGoods" parameterType="rebue.suc.mo.SucGoodsMo" resultType="rebue.suc.Ro.UserGoodsRo">
+    <!--
+
+    -->
+    select 
+    <include refid="Base_Column_List" />
+    from SUC_GOODS
+    <where>
+      <if test="classId != null">
+        and CLASS_ID = #{classId,jdbcType=BIGINT}
+      </if>
+      <if test="goodTitle != null and goodTitle != ''">
+        and GOOD_TITLE = #{goodTitle,jdbcType=VARCHAR}
+      </if>
+      <if test="goodDetail != null and goodDetail != ''">
+        and GOOD_DETAIL = #{goodDetail,jdbcType=VARCHAR}
+      </if>
+      <if test="state != null">
+        and STATE = #{state,jdbcType=BIT}
+      </if>
+      <if test="goodType != null">
+        and GOOD_TYPE = #{goodType,jdbcType=TINYINT}
+      </if>
+      <if test="oldPrice != null">
+        and OLD_PRICE = #{oldPrice,jdbcType=INTEGER}
+      </if>
+      <if test="newPrice != null">
+        and NEW_PRICE = #{newPrice,jdbcType=INTEGER}
+      </if>
+      <if test="buyTime != null">
+        and BUY_TIME = #{buyTime,jdbcType=DATE}
+      </if>
+      <if test="priceDay != null">
+        and PRICE_DAY = #{priceDay,jdbcType=INTEGER}
+      </if>
+      <if test="isNowSell != null">
+        and IS_NOW_SELL = #{isNowSell,jdbcType=BIT}
+      </if>
+      <if test="isDiscuss != null">
+        and IS_DISCUSS = #{isDiscuss,jdbcType=BIT}
+      </if>
+      <if test="userId != null">
+        and USER_ID = #{userId,jdbcType=BIGINT}
+      </if>
+      <if test="aotuDownTime != null">
+        and AOTU_DOWN_TIME = #{aotuDownTime,jdbcType=DATE}
+      </if>
+    </where>
+  </select>
+  
 </mapper>

@@ -6,6 +6,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 import javax.annotation.Resource;
 
@@ -14,16 +15,21 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.github.dozermapper.core.Mapper;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 
 import rebue.robotech.dic.ResultDic;
 import rebue.robotech.ro.Ro;
 import rebue.robotech.svc.impl.BaseSvcImpl;
+import rebue.suc.Ro.UserGoodsRo;
 import rebue.suc.To.SucGoodsTo;
 import rebue.suc.dao.SucGoodsDao;
 import rebue.suc.jo.SucGoodsJo;
 import rebue.suc.mapper.SucGoodsMapper;
+import rebue.suc.mo.SucGoodsClassMo;
 import rebue.suc.mo.SucGoodsImgMo;
 import rebue.suc.mo.SucGoodsMo;
+import rebue.suc.svc.SucGoodsClassSvc;
 import rebue.suc.svc.SucGoodsImgSvc;
 import rebue.suc.svc.SucGoodsSvc;
 
@@ -47,6 +53,9 @@ public class SucGoodsSvcImpl extends BaseSvcImpl<java.lang.Long, SucGoodsJo, Suc
 
 	@Resource
 	private SucGoodsImgSvc sucGoodsImgSvc;
+	
+	@Resource
+	private SucGoodsClassSvc  sucGoodsClassSvc;
 
 	/**
 	 * @mbg.generated 自动生成，如需修改，请删除本行
@@ -96,5 +105,31 @@ public class SucGoodsSvcImpl extends BaseSvcImpl<java.lang.Long, SucGoodsJo, Suc
 		result.setMsg("添加成功");
 		result.setResult(ResultDic.SUCCESS);
 		return  result;
+	}
+	
+	/**
+	 * 分页查询用户商品和商品图片
+	 */
+	@Override
+	public PageInfo<UserGoodsRo> listGoods(SucGoodsMo mo, Integer pageNum, Integer pageSize) {
+		log.info("listUserComment: 查询用户商品参数为 mo-{},pageNum-{},pageSize-{}", mo, pageNum, pageSize);
+		PageInfo<UserGoodsRo> result = PageHelper.startPage(pageNum, pageSize)
+				.doSelectPageInfo(() -> _mapper.listGoods(mo));
+		for (final UserGoodsRo item : result.getList()) {
+			// 获取商品图片
+			SucGoodsImgMo imgMo = new SucGoodsImgMo();
+			imgMo.setGoodId(item.getId());
+			log.info("获取用户的图片的参数-{}", imgMo);
+			List<SucGoodsImgMo> imgResult = sucGoodsImgSvc.list(imgMo);
+			log.info("获取用户的图片的结果-{}", imgResult);
+			item.setFileList(imgResult);
+			// 获取商品分类名字
+			log.info("获取商品分类名字的参数-{}", item.getClassId());
+			SucGoodsClassMo classResult = sucGoodsClassSvc.getById(item.getClassId());
+			log.info("获取商品分类名字的结果-{}", classResult);
+			item.setClassName(classResult.getClassName());
+		}
+		
+		return result;
 	}
 }

@@ -1,7 +1,4 @@
 package rebue.suc.ctrl;
-
-import com.github.pagehelper.PageInfo;
-
 import java.util.List;
 
 import javax.annotation.Resource;

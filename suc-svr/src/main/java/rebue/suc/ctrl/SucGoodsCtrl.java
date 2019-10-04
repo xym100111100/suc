@@ -1,6 +1,6 @@
 package rebue.suc.ctrl;
-
 import com.github.pagehelper.PageInfo;
+
 import javax.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.dao.DuplicateKeyException;
@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import rebue.robotech.dic.ResultDic;
 import rebue.robotech.ro.IdRo;
 import rebue.robotech.ro.Ro;
+import rebue.suc.Ro.UserGoodsRo;
 import rebue.suc.To.SucGoodsTo;
 import rebue.suc.mo.SucGoodsMo;
 import rebue.suc.svc.SucGoodsSvc;
@@ -121,10 +122,9 @@ public class SucGoodsCtrl {
     /**
      * 查询
      *
-     * @mbg.generated 自动生成，如需修改，请删除本行
      */
     @GetMapping("/suc/goods")
-    PageInfo<SucGoodsMo> list(final SucGoodsMo mo, @RequestParam(value = "pageNum", required = false) Integer pageNum, @RequestParam(value = "pageSize", required = false) Integer pageSize) {
+    PageInfo<UserGoodsRo> list(final SucGoodsMo mo, @RequestParam(value = "pageNum", required = false) Integer pageNum, @RequestParam(value = "pageSize", required = false) Integer pageSize) {
         log.info("received get:/suc/goods");
         log.info("goodsCtrl.list: {},pageNum-{},pageSize-{}", mo, pageNum, pageSize);
         if (pageNum == null) {
@@ -139,7 +139,7 @@ public class SucGoodsCtrl {
             log.error(msg);
             throw new IllegalArgumentException(msg);
         }
-        final PageInfo<SucGoodsMo> result = svc.list(mo, pageNum, pageSize);
+        final PageInfo<UserGoodsRo> result = svc.listGoods(mo, pageNum, pageSize);
         log.info("result: " + result);
         return result;
     }

@@ -3,6 +3,7 @@ package rebue.suc.mapper;
 import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 import rebue.robotech.mapper.MybatisBaseMapper;
+import rebue.suc.Ro.UserDriverRo;
 import rebue.suc.mo.SucGoodsMo;
 
 @Mapper
@@ -61,4 +62,7 @@ public interface SucGoodsMapper extends MybatisBaseMapper<SucGoodsMo, Long> {
     @mbg.generated 自动生成，如需修改，请删除本行
      */
     int countSelective(SucGoodsMo record);
+    
+    
+   List<UserDriverRo> listGoods(SucGoodsMo mo);
 }
