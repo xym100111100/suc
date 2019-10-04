@@ -14,12 +14,12 @@
     <result column="GOOD_TYPE" jdbcType="TINYINT" property="goodType" />
     <result column="OLD_PRICE" jdbcType="INTEGER" property="oldPrice" />
     <result column="NEW_PRICE" jdbcType="INTEGER" property="newPrice" />
-    <result column="BUY_TIME" jdbcType="DATE" property="buyTime" />
+    <result column="BUY_TIME" jdbcType="TIMESTAMP" property="buyTime" />
     <result column="PRICE_DAY" jdbcType="INTEGER" property="priceDay" />
     <result column="IS_NOW_SELL" jdbcType="BIT" property="isNowSell" />
     <result column="IS_DISCUSS" jdbcType="BIT" property="isDiscuss" />
     <result column="USER_ID" jdbcType="BIGINT" property="userId" />
-    <result column="AOTU_DOWN_TIME" jdbcType="DATE" property="aotuDownTime" />
+    <result column="AOTU_DOWN_TIME" jdbcType="TIMESTAMP" property="aotuDownTime" />
   </resultMap>
   <sql id="Base_Column_List">
     <!--
@@ -59,9 +59,9 @@
       USER_ID, AOTU_DOWN_TIME)
     values (#{id,jdbcType=BIGINT}, #{classId,jdbcType=BIGINT}, #{goodTitle,jdbcType=VARCHAR}, 
       #{goodDetail,jdbcType=VARCHAR}, #{state,jdbcType=BIT}, #{goodType,jdbcType=TINYINT}, 
-      #{oldPrice,jdbcType=INTEGER}, #{newPrice,jdbcType=INTEGER}, #{buyTime,jdbcType=DATE}, 
+      #{oldPrice,jdbcType=INTEGER}, #{newPrice,jdbcType=INTEGER}, #{buyTime,jdbcType=TIMESTAMP}, 
       #{priceDay,jdbcType=INTEGER}, #{isNowSell,jdbcType=BIT}, #{isDiscuss,jdbcType=BIT}, 
-      #{userId,jdbcType=BIGINT}, #{aotuDownTime,jdbcType=DATE})
+      #{userId,jdbcType=BIGINT}, #{aotuDownTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="rebue.suc.mo.SucGoodsMo">
     <!--
@@ -139,7 +139,7 @@
         #{newPrice,jdbcType=INTEGER},
       </if>
       <if test="buyTime != null">
-        #{buyTime,jdbcType=DATE},
+        #{buyTime,jdbcType=TIMESTAMP},
       </if>
       <if test="priceDay != null">
         #{priceDay,jdbcType=INTEGER},
@@ -154,7 +154,7 @@
         #{userId,jdbcType=BIGINT},
       </if>
       <if test="aotuDownTime != null">
-        #{aotuDownTime,jdbcType=DATE},
+        #{aotuDownTime,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
@@ -187,7 +187,7 @@
         NEW_PRICE = #{newPrice,jdbcType=INTEGER},
       </if>
       <if test="buyTime != null">
-        BUY_TIME = #{buyTime,jdbcType=DATE},
+        BUY_TIME = #{buyTime,jdbcType=TIMESTAMP},
       </if>
       <if test="priceDay != null">
         PRICE_DAY = #{priceDay,jdbcType=INTEGER},
@@ -202,7 +202,7 @@
         USER_ID = #{userId,jdbcType=BIGINT},
       </if>
       <if test="aotuDownTime != null">
-        AOTU_DOWN_TIME = #{aotuDownTime,jdbcType=DATE},
+        AOTU_DOWN_TIME = #{aotuDownTime,jdbcType=TIMESTAMP},
       </if>
     </set>
     where ID = #{id,jdbcType=BIGINT}
@@ -220,12 +220,12 @@
       GOOD_TYPE = #{goodType,jdbcType=TINYINT},
       OLD_PRICE = #{oldPrice,jdbcType=INTEGER},
       NEW_PRICE = #{newPrice,jdbcType=INTEGER},
-      BUY_TIME = #{buyTime,jdbcType=DATE},
+      BUY_TIME = #{buyTime,jdbcType=TIMESTAMP},
       PRICE_DAY = #{priceDay,jdbcType=INTEGER},
       IS_NOW_SELL = #{isNowSell,jdbcType=BIT},
       IS_DISCUSS = #{isDiscuss,jdbcType=BIT},
       USER_ID = #{userId,jdbcType=BIGINT},
-      AOTU_DOWN_TIME = #{aotuDownTime,jdbcType=DATE}
+      AOTU_DOWN_TIME = #{aotuDownTime,jdbcType=TIMESTAMP}
     where ID = #{id,jdbcType=BIGINT}
   </update>
   <select id="selectAll" resultMap="BaseResultMap">
@@ -268,7 +268,7 @@
         and NEW_PRICE = #{newPrice,jdbcType=INTEGER}
       </if>
       <if test="buyTime != null">
-        and BUY_TIME = #{buyTime,jdbcType=DATE}
+        and BUY_TIME = #{buyTime,jdbcType=TIMESTAMP}
       </if>
       <if test="priceDay != null">
         and PRICE_DAY = #{priceDay,jdbcType=INTEGER}
@@ -283,7 +283,7 @@
         and USER_ID = #{userId,jdbcType=BIGINT}
       </if>
       <if test="aotuDownTime != null">
-        and AOTU_DOWN_TIME = #{aotuDownTime,jdbcType=DATE}
+        and AOTU_DOWN_TIME = #{aotuDownTime,jdbcType=TIMESTAMP}
       </if>
     </where>
   </select>
@@ -329,7 +329,7 @@
         and NEW_PRICE = #{newPrice,jdbcType=INTEGER}
       </if>
       <if test="buyTime != null and buyTime != ''">
-        and BUY_TIME = #{buyTime,jdbcType=DATE}
+        and BUY_TIME = #{buyTime,jdbcType=TIMESTAMP}
       </if>
       <if test="priceDay != null and priceDay != ''">
         and PRICE_DAY = #{priceDay,jdbcType=INTEGER}
@@ -344,7 +344,7 @@
         and USER_ID = #{userId,jdbcType=BIGINT}
       </if>
       <if test="aotuDownTime != null and aotuDownTime != ''">
-        and AOTU_DOWN_TIME = #{aotuDownTime,jdbcType=DATE}
+        and AOTU_DOWN_TIME = #{aotuDownTime,jdbcType=TIMESTAMP}
       </if>
     </where>
   </select>
@@ -378,7 +378,7 @@
         and NEW_PRICE = #{newPrice,jdbcType=INTEGER}
       </if>
       <if test="buyTime != null">
-        and BUY_TIME = #{buyTime,jdbcType=DATE}
+        and BUY_TIME = #{buyTime,jdbcType=TIMESTAMP}
       </if>
       <if test="priceDay != null">
         and PRICE_DAY = #{priceDay,jdbcType=INTEGER}
@@ -393,7 +393,7 @@
         and USER_ID = #{userId,jdbcType=BIGINT}
       </if>
       <if test="aotuDownTime != null">
-        and AOTU_DOWN_TIME = #{aotuDownTime,jdbcType=DATE}
+        and AOTU_DOWN_TIME = #{aotuDownTime,jdbcType=TIMESTAMP}
       </if>
     </where>
   </select>
@@ -428,7 +428,7 @@
         and NEW_PRICE = #{newPrice,jdbcType=INTEGER}
       </if>
       <if test="buyTime != null">
-        and BUY_TIME = #{buyTime,jdbcType=DATE}
+        and BUY_TIME = #{buyTime,jdbcType=TIMESTAMP}
       </if>
       <if test="priceDay != null">
         and PRICE_DAY = #{priceDay,jdbcType=INTEGER}
@@ -443,7 +443,7 @@
         and USER_ID = #{userId,jdbcType=BIGINT}
       </if>
       <if test="aotuDownTime != null">
-        and AOTU_DOWN_TIME = #{aotuDownTime,jdbcType=DATE}
+        and AOTU_DOWN_TIME = #{aotuDownTime,jdbcType=TIMESTAMP}
       </if>
     </where>
   </select>

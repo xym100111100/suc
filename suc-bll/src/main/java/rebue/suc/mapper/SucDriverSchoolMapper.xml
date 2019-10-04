@@ -19,7 +19,7 @@
     <result column="TEACHER_COUNT" jdbcType="INTEGER" property="teacherCount" />
     <result column="CAR_COUNT" jdbcType="INTEGER" property="carCount" />
     <result column="TRAINING_COUNT" jdbcType="INTEGER" property="trainingCount" />
-    <result column="CREAT_TIME" jdbcType="DATE" property="creatTime" />
+    <result column="CREAT_TIME" jdbcType="TIMESTAMP" property="creatTime" />
     <result column="ALL_RATE" jdbcType="DECIMAL" property="allRate" />
     <result column="SIGNUP_PRICE" jdbcType="INTEGER" property="signupPrice" />
     <result column="ALL_PRICE" jdbcType="INTEGER" property="allPrice" />
@@ -68,7 +68,7 @@
       #{foundTime,jdbcType=DATE}, #{address,jdbcType=VARCHAR}, #{yearStudent,jdbcType=BIGINT}, 
       #{passingRate,jdbcType=TINYINT}, #{deliverDetail,jdbcType=VARCHAR}, #{driverImg,jdbcType=VARCHAR}, 
       #{schoolDetail,jdbcType=VARCHAR}, #{teacherCount,jdbcType=INTEGER}, #{carCount,jdbcType=INTEGER}, 
-      #{trainingCount,jdbcType=INTEGER}, #{creatTime,jdbcType=DATE}, #{allRate,jdbcType=DECIMAL}, 
+      #{trainingCount,jdbcType=INTEGER}, #{creatTime,jdbcType=TIMESTAMP}, #{allRate,jdbcType=DECIMAL}, 
       #{signupPrice,jdbcType=INTEGER}, #{allPrice,jdbcType=INTEGER}, #{tainingArea,jdbcType=INTEGER}
       )
   </insert>
@@ -175,7 +175,7 @@
         #{trainingCount,jdbcType=INTEGER},
       </if>
       <if test="creatTime != null">
-        #{creatTime,jdbcType=DATE},
+        #{creatTime,jdbcType=TIMESTAMP},
       </if>
       <if test="allRate != null">
         #{allRate,jdbcType=DECIMAL},
@@ -235,7 +235,7 @@
         TRAINING_COUNT = #{trainingCount,jdbcType=INTEGER},
       </if>
       <if test="creatTime != null">
-        CREAT_TIME = #{creatTime,jdbcType=DATE},
+        CREAT_TIME = #{creatTime,jdbcType=TIMESTAMP},
       </if>
       <if test="allRate != null">
         ALL_RATE = #{allRate,jdbcType=DECIMAL},
@@ -270,7 +270,7 @@
       TEACHER_COUNT = #{teacherCount,jdbcType=INTEGER},
       CAR_COUNT = #{carCount,jdbcType=INTEGER},
       TRAINING_COUNT = #{trainingCount,jdbcType=INTEGER},
-      CREAT_TIME = #{creatTime,jdbcType=DATE},
+      CREAT_TIME = #{creatTime,jdbcType=TIMESTAMP},
       ALL_RATE = #{allRate,jdbcType=DECIMAL},
       SIGNUP_PRICE = #{signupPrice,jdbcType=INTEGER},
       ALL_PRICE = #{allPrice,jdbcType=INTEGER},
@@ -333,7 +333,7 @@
         and TRAINING_COUNT = #{trainingCount,jdbcType=INTEGER}
       </if>
       <if test="creatTime != null">
-        and CREAT_TIME = #{creatTime,jdbcType=DATE}
+        and CREAT_TIME = #{creatTime,jdbcType=TIMESTAMP}
       </if>
       <if test="allRate != null">
         and ALL_RATE = #{allRate,jdbcType=DECIMAL}
@@ -406,7 +406,7 @@
         and TRAINING_COUNT = #{trainingCount,jdbcType=INTEGER}
       </if>
       <if test="creatTime != null and creatTime != ''">
-        and CREAT_TIME = #{creatTime,jdbcType=DATE}
+        and CREAT_TIME = #{creatTime,jdbcType=TIMESTAMP}
       </if>
       <if test="allRate != null and allRate != ''">
         and ALL_RATE = #{allRate,jdbcType=DECIMAL}
@@ -467,7 +467,7 @@
         and TRAINING_COUNT = #{trainingCount,jdbcType=INTEGER}
       </if>
       <if test="creatTime != null">
-        and CREAT_TIME = #{creatTime,jdbcType=DATE}
+        and CREAT_TIME = #{creatTime,jdbcType=TIMESTAMP}
       </if>
       <if test="allRate != null">
         and ALL_RATE = #{allRate,jdbcType=DECIMAL}

@@ -72,7 +72,7 @@ public class SucUserDriverJo implements Serializable {
      * @mbg.generated 自动生成，如需修改，请删除本行
      */
     @Basic(optional = false)
-    @Column(name = "SIGNUP_TIME", nullable = false, length = 10)
+    @Column(name = "SIGNUP_TIME", nullable = false, length = 19)
     @Temporal(TemporalType.DATE)
     private Date signupTime;
 
@@ -82,7 +82,7 @@ public class SucUserDriverJo implements Serializable {
      * @mbg.generated 自动生成，如需修改，请删除本行
      */
     @Basic(optional = true)
-    @Column(name = "CANCEL_TIME", nullable = true, length = 10)
+    @Column(name = "CANCEL_TIME", nullable = true, length = 19)
     @Temporal(TemporalType.DATE)
     private Date cancelTime;
 
@@ -92,7 +92,7 @@ public class SucUserDriverJo implements Serializable {
      * @mbg.generated 自动生成，如需修改，请删除本行
      */
     @Basic(optional = true)
-    @Column(name = "SIGNING_TIME", nullable = true, length = 10)
+    @Column(name = "SIGNING_TIME", nullable = true, length = 19)
     @Temporal(TemporalType.DATE)
     private Date signingTime;
 
@@ -102,7 +102,7 @@ public class SucUserDriverJo implements Serializable {
      * @mbg.generated 自动生成，如需修改，请删除本行
      */
     @Basic(optional = true)
-    @Column(name = "FINISH_TIME", nullable = true, length = 10)
+    @Column(name = "FINISH_TIME", nullable = true, length = 19)
     @Temporal(TemporalType.DATE)
     private Date finishTime;
 

@@ -8,6 +8,8 @@ import java.util.Date;
 import org.springframework.format.annotation.DateTimeFormat;
 
 /**
+ * 用户驾校信息
+ *
  * 数据库表: SUC_USER_DRIVER
  *
  * @mbg.generated 自动生成的注释，如需修改本注释，请删除本行
@@ -58,8 +60,8 @@ public class SucUserDriverMo implements Serializable {
      *
      *    @mbg.generated 自动生成，如需修改，请删除本行
      */
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd", timezone = "GMT+8")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date signupTime;
 
     /**
@@ -69,8 +71,8 @@ public class SucUserDriverMo implements Serializable {
      *
      *    @mbg.generated 自动生成，如需修改，请删除本行
      */
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd", timezone = "GMT+8")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date cancelTime;
 
     /**
@@ -80,8 +82,8 @@ public class SucUserDriverMo implements Serializable {
      *
      *    @mbg.generated 自动生成，如需修改，请删除本行
      */
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd", timezone = "GMT+8")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date signingTime;
 
     /**
@@ -91,8 +93,8 @@ public class SucUserDriverMo implements Serializable {
      *
      *    @mbg.generated 自动生成，如需修改，请删除本行
      */
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd", timezone = "GMT+8")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date finishTime;
 
     /**

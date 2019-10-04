@@ -72,12 +72,12 @@ public class SucGoodsSvcImpl extends BaseSvcImpl<java.lang.Long, SucGoodsJo, Suc
 	}
 
 	/**
-	 * 添加商品
+	 * 添加商品   
 	 */
 	@Override
 	public Ro addGoods(SucGoodsTo to) {
 		SucGoodsMo mo = dozerMapper.map(to, SucGoodsMo.class);
-		SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd");
+		SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		Calendar c = Calendar.getInstance();
 		c.add(Calendar.DAY_OF_MONTH, 14);
 		Date date = new Date(); ;

@@ -63,7 +63,7 @@ public class SucNoticeJo implements Serializable {
      * @mbg.generated 自动生成，如需修改，请删除本行
      */
     @Basic(optional = false)
-    @Column(name = "AUTO_DOWN_TIME", nullable = false, length = 10)
+    @Column(name = "AUTO_DOWN_TIME", nullable = false, length = 19)
     @Temporal(TemporalType.DATE)
     private Date autoDownTime;
 

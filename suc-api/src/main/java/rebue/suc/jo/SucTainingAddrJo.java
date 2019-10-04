@@ -39,8 +39,8 @@ public class SucTainingAddrJo implements Serializable {
     /**
      * @mbg.generated 自动生成，如需修改，请删除本行
      */
-    @Basic(optional = true)
-    @Column(name = "DERIVER_ID", nullable = true, length = 19)
+    @Basic(optional = false)
+    @Column(name = "DERIVER_ID", nullable = false, length = 19)
     private Long deriverId;
 
     /**
@@ -48,8 +48,8 @@ public class SucTainingAddrJo implements Serializable {
      *
      * @mbg.generated 自动生成，如需修改，请删除本行
      */
-    @Basic(optional = true)
-    @Column(name = "TRAINING_ADDR", nullable = true, length = 100)
+    @Basic(optional = false)
+    @Column(name = "TRAINING_ADDR", nullable = false, length = 100)
     private String trainingAddr;
 
     /**

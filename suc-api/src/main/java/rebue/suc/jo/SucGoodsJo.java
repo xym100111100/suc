@@ -108,7 +108,7 @@ public class SucGoodsJo implements Serializable {
      * @mbg.generated 自动生成，如需修改，请删除本行
      */
     @Basic(optional = true)
-    @Column(name = "BUY_TIME", nullable = true, length = 10)
+    @Column(name = "BUY_TIME", nullable = true, length = 19)
     @Temporal(TemporalType.DATE)
     private Date buyTime;
 
@@ -154,7 +154,7 @@ public class SucGoodsJo implements Serializable {
      * @mbg.generated 自动生成，如需修改，请删除本行
      */
     @Basic(optional = false)
-    @Column(name = "AOTU_DOWN_TIME", nullable = false, length = 10)
+    @Column(name = "AOTU_DOWN_TIME", nullable = false, length = 19)
     @Temporal(TemporalType.DATE)
     private Date aotuDownTime;
 
