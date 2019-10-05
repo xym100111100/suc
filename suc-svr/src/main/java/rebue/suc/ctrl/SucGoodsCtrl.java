@@ -135,7 +135,7 @@ public class SucGoodsCtrl {
 			pageNum = 1;
 		}
 		if (pageSize == null) {
-			pageSize = 5;
+			pageSize = 8;
 		}
 		log.info("list SucGoodsMo:" + mo + ", pageNum = " + pageNum + ", pageSize = " + pageSize);
 		if (pageSize > 50) {

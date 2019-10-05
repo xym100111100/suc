@@ -29,9 +29,11 @@ import rebue.suc.mapper.SucGoodsMapper;
 import rebue.suc.mo.SucGoodsClassMo;
 import rebue.suc.mo.SucGoodsImgMo;
 import rebue.suc.mo.SucGoodsMo;
+import rebue.suc.mo.SucUserMo;
 import rebue.suc.svc.SucGoodsClassSvc;
 import rebue.suc.svc.SucGoodsImgSvc;
 import rebue.suc.svc.SucGoodsSvc;
+import rebue.suc.svc.SucUserSvc;
 
 /**
  * 在单独使用不带任何参数的 @Transactional 注释时， propagation(传播模式)=REQUIRED，readOnly=false，
@@ -53,9 +55,12 @@ public class SucGoodsSvcImpl extends BaseSvcImpl<java.lang.Long, SucGoodsJo, Suc
 
 	@Resource
 	private SucGoodsImgSvc sucGoodsImgSvc;
-	
+
 	@Resource
-	private SucGoodsClassSvc  sucGoodsClassSvc;
+	private SucGoodsClassSvc sucGoodsClassSvc;
+
+	@Resource
+	private SucUserSvc sucUserSvc;
 
 	/**
 	 * @mbg.generated 自动生成，如需修改，请删除本行
@@ -72,7 +77,7 @@ public class SucGoodsSvcImpl extends BaseSvcImpl<java.lang.Long, SucGoodsJo, Suc
 	}
 
 	/**
-	 * 添加商品   
+	 * 添加商品
 	 */
 	@Override
 	public Ro addGoods(SucGoodsTo to) {
@@ -80,11 +85,12 @@ public class SucGoodsSvcImpl extends BaseSvcImpl<java.lang.Long, SucGoodsJo, Suc
 		SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		Calendar c = Calendar.getInstance();
 		c.add(Calendar.DAY_OF_MONTH, 14);
-		Date date = new Date(); ;
+		Date date = new Date();
+		;
 		try {
 			date = sf.parse(sf.format(c.getTime()));
 			mo.setAotuDownTime(date);
-			
+
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
@@ -94,19 +100,19 @@ public class SucGoodsSvcImpl extends BaseSvcImpl<java.lang.Long, SucGoodsJo, Suc
 			SucGoodsImgMo goodsMo = new SucGoodsImgMo();
 			goodsMo.setImgPath(item.getImgPath());
 			goodsMo.setGoodId(mo.getId());
-			log.info("添加商品的参数为:goodsMo-{}",goodsMo);
-			if(sucGoodsImgSvc.add(goodsMo) != 1) {
+			log.info("添加商品的参数为:goodsMo-{}", goodsMo);
+			if (sucGoodsImgSvc.add(goodsMo) != 1) {
 				log.error("添加商品失败");
 				throw new RuntimeException("error");
 			}
-			
+
 		}
 		Ro result = new Ro();
 		result.setMsg("添加成功");
 		result.setResult(ResultDic.SUCCESS);
-		return  result;
+		return result;
 	}
-	
+
 	/**
 	 * 分页查询用户商品和商品图片
 	 */
@@ -128,8 +134,13 @@ public class SucGoodsSvcImpl extends BaseSvcImpl<java.lang.Long, SucGoodsJo, Suc
 			SucGoodsClassMo classResult = sucGoodsClassSvc.getById(item.getClassId());
 			log.info("获取商品分类名字的结果-{}", classResult);
 			item.setClassName(classResult.getClassName());
+			// 获取用户微信昵称
+			log.info("获取用户的微信昵称的参数iuserId-{}", item.getUserId());
+			SucUserMo userResult=sucUserSvc.getById(item.getUserId());
+			log.info("获取用户的微信昵称的结果userResult-{}", userResult);
+			item.setUserName(userResult.getWxName());
 		}
-		
+
 		return result;
 	}
 }

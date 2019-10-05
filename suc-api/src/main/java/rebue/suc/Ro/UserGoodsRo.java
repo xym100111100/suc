@@ -48,6 +48,8 @@ public class UserGoodsRo {
 
 	private Long userId;
 	
+	private String userName; // 微信昵称
+	
     private Boolean state;
 
 	private List<SucGoodsImgMo> fileList;
