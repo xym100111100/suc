@@ -35,6 +35,12 @@ public class SucGoodsTo {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date buyTime;
     
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+    private Date aotuDownTime;
+    
+    private  boolean  state ;
+    
     private Integer priceDay;
     
     private Boolean isNowSell;

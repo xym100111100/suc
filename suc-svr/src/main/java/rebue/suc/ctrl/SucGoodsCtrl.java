@@ -1,5 +1,6 @@
 package rebue.suc.ctrl;
 
+import com.github.dozermapper.core.Mapper;
 import com.github.pagehelper.PageInfo;
 
 import java.util.List;
@@ -19,7 +20,9 @@ import rebue.robotech.ro.IdRo;
 import rebue.robotech.ro.Ro;
 import rebue.suc.Ro.UserGoodsRo;
 import rebue.suc.To.SucGoodsTo;
+import rebue.suc.mo.SucGoodsImgMo;
 import rebue.suc.mo.SucGoodsMo;
+import rebue.suc.svc.SucGoodsImgSvc;
 import rebue.suc.svc.SucGoodsSvc;
 
 /**
@@ -34,6 +37,12 @@ public class SucGoodsCtrl {
 	 */
 	@Resource
 	private SucGoodsSvc svc;
+
+	@Resource
+	private SucGoodsImgSvc sucGoodsImgSvc;
+
+	@Resource
+	private Mapper dozerMapper;
 
 	/**
 	 * 添加
@@ -77,9 +86,25 @@ public class SucGoodsCtrl {
 	 * @mbg.generated 自动生成，如需修改，请删除本行
 	 */
 	@PutMapping("/suc/goods")
-	Ro modify(@RequestBody final SucGoodsMo mo) throws Exception {
+	Ro modify(@RequestBody final SucGoodsTo to) throws Exception {
 		log.info("received put:/suc/goods");
-		log.info("goodsCtrl.modify: {}", mo);
+		log.info("goodsCtrl.modify: {}", to);
+		SucGoodsMo mo = dozerMapper.map(to, SucGoodsMo.class);
+		if (to.getFileList() != null && to.getFileList().size() > 0) {
+			log.info("需要重新添加图片");
+			log.info("添加前先删除，删除图片的参数为goodId-{}", to.getId());
+			if (sucGoodsImgSvc.deleteByGoodId(to.getId()) > 0) {
+				for (SucGoodsImgMo item : to.getFileList()) {
+					item.setGoodId(to.getId());
+					log.info("添加图片的参数为:-{}",item);
+					sucGoodsImgSvc.add(item);
+				}
+			} else {
+				final String msg = "修改失败";
+				log.error("{}: mo-{}", msg, mo);
+				return new Ro(ResultDic.FAIL, msg);
+			}
+		}
 		try {
 			if (svc.modify(mo) == 1) {
 				final String msg = "修改成功";
@@ -102,16 +127,18 @@ public class SucGoodsCtrl {
 	}
 
 	/**
-	 * 删除
+	 * 删除,已经修改为同时去删除图片记录
 	 *
-	 * @mbg.generated 自动生成，如需修改，请删除本行
 	 */
 	@DeleteMapping("/suc/goods")
 	Ro del(@RequestParam("id") final java.lang.Long id) {
 		log.info("received delete:/suc/goods");
 		log.info("goodsCtrl.del: {}", id);
+
 		final int result = svc.del(id);
 		if (result == 1) {
+			// 删除图片
+			sucGoodsImgSvc.deleteByGoodId(id);
 			final String msg = "删除成功";
 			log.info("{}: id-{}", msg, id);
 			return new Ro(ResultDic.SUCCESS, msg);

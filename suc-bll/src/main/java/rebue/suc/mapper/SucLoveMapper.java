@@ -7,58 +7,59 @@ import rebue.suc.mo.SucLoveMo;
 
 @Mapper
 public interface SucLoveMapper extends MybatisBaseMapper<SucLoveMo, Long> {
+
     /**
-    @mbg.generated 自动生成，如需修改，请删除本行
+     *    @mbg.generated 自动生成，如需修改，请删除本行
      */
     int deleteByPrimaryKey(Long id);
 
     /**
-    @mbg.generated 自动生成，如需修改，请删除本行
+     *    @mbg.generated 自动生成，如需修改，请删除本行
      */
     int insert(SucLoveMo record);
 
     /**
-    @mbg.generated 自动生成，如需修改，请删除本行
+     *    @mbg.generated 自动生成，如需修改，请删除本行
      */
     int insertSelective(SucLoveMo record);
 
     /**
-    @mbg.generated 自动生成，如需修改，请删除本行
+     *    @mbg.generated 自动生成，如需修改，请删除本行
      */
     SucLoveMo selectByPrimaryKey(Long id);
 
     /**
-    @mbg.generated 自动生成，如需修改，请删除本行
+     *    @mbg.generated 自动生成，如需修改，请删除本行
      */
     int updateByPrimaryKeySelective(SucLoveMo record);
 
     /**
-    @mbg.generated 自动生成，如需修改，请删除本行
+     *    @mbg.generated 自动生成，如需修改，请删除本行
      */
     int updateByPrimaryKey(SucLoveMo record);
 
     /**
-    @mbg.generated 自动生成，如需修改，请删除本行
+     *    @mbg.generated 自动生成，如需修改，请删除本行
      */
     List<SucLoveMo> selectAll();
 
     /**
-    @mbg.generated 自动生成，如需修改，请删除本行
+     *    @mbg.generated 自动生成，如需修改，请删除本行
      */
     List<SucLoveMo> selectSelective(SucLoveMo record);
 
     /**
-    @mbg.generated 自动生成，如需修改，请删除本行
+     *    @mbg.generated 自动生成，如需修改，请删除本行
      */
     boolean existByPrimaryKey(Long id);
 
     /**
-    @mbg.generated 自动生成，如需修改，请删除本行
+     *    @mbg.generated 自动生成，如需修改，请删除本行
      */
     boolean existSelective(SucLoveMo record);
 
     /**
-    @mbg.generated 自动生成，如需修改，请删除本行
+     *    @mbg.generated 自动生成，如需修改，请删除本行
      */
     int countSelective(SucLoveMo record);
 }

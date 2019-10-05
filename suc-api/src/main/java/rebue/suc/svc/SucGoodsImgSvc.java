@@ -10,4 +10,6 @@ import rebue.suc.mo.SucGoodsImgMo;
  * @mbg.generated 自动生成的注释，如需修改本注释，请删除本行
  */
 public interface SucGoodsImgSvc extends BaseSvc<java.lang.Long, SucGoodsImgMo, SucGoodsImgJo> {
+	
+	int deleteByGoodId(Long goodId);
 }

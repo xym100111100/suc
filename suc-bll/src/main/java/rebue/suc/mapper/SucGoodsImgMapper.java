@@ -1,7 +1,11 @@
 package rebue.suc.mapper;
 
 import java.util.List;
+
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+
 import rebue.robotech.mapper.MybatisBaseMapper;
 import rebue.suc.mo.SucGoodsImgMo;
 
@@ -61,4 +65,7 @@ public interface SucGoodsImgMapper extends MybatisBaseMapper<SucGoodsImgMo, Long
     @mbg.generated 自动生成，如需修改，请删除本行
      */
     int countSelective(SucGoodsImgMo record);
+    
+    @Delete("delete from SUC_GOODS_IMG where GOOD_ID  = #{goodId,jdbcType=BIGINT}")
+    int delateImgByGoodId(@Param("goodId") Long goodId);
 }

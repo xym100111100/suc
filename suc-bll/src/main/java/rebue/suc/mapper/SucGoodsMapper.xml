@@ -432,7 +432,7 @@
         and CLASS_ID = #{classId,jdbcType=BIGINT}
       </if>
       <if test="goodTitle != null and goodTitle != ''">
-        and GOOD_TITLE = #{goodTitle,jdbcType=VARCHAR}
+        and GOOD_TITLE  LIKE '%${goodTitle}%'
       </if>
       <if test="goodDetail != null and goodDetail != ''">
         and GOOD_DETAIL = #{goodDetail,jdbcType=VARCHAR}

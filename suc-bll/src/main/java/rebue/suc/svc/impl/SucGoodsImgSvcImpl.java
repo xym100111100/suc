@@ -4,6 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
+
 import rebue.robotech.svc.impl.BaseSvcImpl;
 import rebue.suc.dao.SucGoodsImgDao;
 import rebue.suc.jo.SucGoodsImgJo;
@@ -43,4 +44,10 @@ public class SucGoodsImgSvcImpl extends BaseSvcImpl<java.lang.Long, SucGoodsImgJ
         }
         return super.add(mo);
     }
+
+	@Override
+	public int deleteByGoodId(Long goodId) {
+		log.info("删除图片的参数为goodId-{}",goodId);
+		return _mapper.delateImgByGoodId(goodId);
+	}
 }

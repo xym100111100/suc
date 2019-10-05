@@ -82,6 +82,7 @@ public class SucGoodsSvcImpl extends BaseSvcImpl<java.lang.Long, SucGoodsJo, Suc
 	@Override
 	public Ro addGoods(SucGoodsTo to) {
 		SucGoodsMo mo = dozerMapper.map(to, SucGoodsMo.class);
+		mo.setState(true);
 		SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		Calendar c = Calendar.getInstance();
 		c.add(Calendar.DAY_OF_MONTH, 14);
@@ -118,7 +119,7 @@ public class SucGoodsSvcImpl extends BaseSvcImpl<java.lang.Long, SucGoodsJo, Suc
 	 */
 	@Override
 	public PageInfo<UserGoodsRo> listGoods(SucGoodsMo mo, Integer pageNum, Integer pageSize) {
-		log.info("listUserComment: 查询用户商品参数为 mo-{},pageNum-{},pageSize-{}", mo, pageNum, pageSize);
+		log.info("listGoods: 查询用户商品参数为 mo-{},pageNum-{},pageSize-{}", mo, pageNum, pageSize);
 		PageInfo<UserGoodsRo> result = PageHelper.startPage(pageNum, pageSize)
 				.doSelectPageInfo(() -> _mapper.listGoods(mo));
 		for (final UserGoodsRo item : result.getList()) {
