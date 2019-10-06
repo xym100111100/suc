@@ -1,15 +1,25 @@
 package rebue.suc.svc.impl;
 
 import lombok.extern.slf4j.Slf4j;
+
+import javax.annotation.Resource;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
+
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
+
 import rebue.robotech.svc.impl.BaseSvcImpl;
+import rebue.suc.Ro.SucNoticeRo;
 import rebue.suc.dao.SucNoticeDao;
 import rebue.suc.jo.SucNoticeJo;
 import rebue.suc.mapper.SucNoticeMapper;
 import rebue.suc.mo.SucNoticeMo;
+import rebue.suc.mo.SucUserMo;
 import rebue.suc.svc.SucNoticeSvc;
+import rebue.suc.svc.SucUserSvc;
 
 /**
  * 用户需求公告
@@ -43,4 +53,27 @@ public class SucNoticeSvcImpl extends BaseSvcImpl<java.lang.Long, SucNoticeJo, S
         }
         return super.add(mo);
     }
+    
+
+	@Resource
+	private SucUserSvc sucUserSvc;
+
+	@Override
+	public PageInfo<SucNoticeRo> listNotice(SucNoticeMo mo, Integer pageNum, Integer pageSize) {
+		PageInfo<SucNoticeRo> result = PageHelper.startPage(pageNum, pageSize)
+				.doSelectPageInfo(() -> _mapper.listNotice(mo));
+		for (final SucNoticeRo item : result.getList()) {
+			// 获取用户微信昵称
+			log.info("获取用户的微信昵称和头像的参数iuserId-{}", item.getUserId());
+			SucUserMo userResult = sucUserSvc.getById(item.getUserId());
+			log.info("获取用户的微信昵称和头像的结果userResult-{}", userResult);
+			item.setUserName(userResult.getWxName());
+			item.setWxFacePath(userResult.getWxFacePath());
+		}
+		
+		return result;
+	}
+	
+	
+	
 }

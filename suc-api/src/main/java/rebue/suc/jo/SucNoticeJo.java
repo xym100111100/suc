@@ -77,6 +77,15 @@ public class SucNoticeJo implements Serializable {
     private String schoolName;
 
     /**
+     * 公告状态
+     *
+     * @mbg.generated 自动生成，如需修改，请删除本行
+     */
+    @Basic(optional = false)
+    @Column(name = "STATE", nullable = false, length = 1)
+    private Boolean state;
+
+    /**
      * @mbg.generated 自动生成，如需修改，请删除本行
      */
     @Override

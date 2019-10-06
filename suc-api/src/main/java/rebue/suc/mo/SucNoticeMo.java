@@ -65,6 +65,15 @@ public class SucNoticeMo implements Serializable {
     private String schoolName;
 
     /**
+     *    公告状态
+     *
+     *    数据库字段: SUC_NOTICE.STATE
+     *
+     *    @mbg.generated 自动生成，如需修改，请删除本行
+     */
+    private Boolean state;
+
+    /**
      *    @mbg.generated 自动生成，如需修改，请删除本行
      */
     private static final long serialVersionUID = 1L;
@@ -180,6 +189,28 @@ public class SucNoticeMo implements Serializable {
     }
 
     /**
+     *    公告状态
+     *
+     *    数据库字段: SUC_NOTICE.STATE
+     *
+     *    @mbg.generated 自动生成，如需修改，请删除本行
+     */
+    public Boolean getState() {
+        return state;
+    }
+
+    /**
+     *    公告状态
+     *
+     *    数据库字段: SUC_NOTICE.STATE
+     *
+     *    @mbg.generated 自动生成，如需修改，请删除本行
+     */
+    public void setState(Boolean state) {
+        this.state = state;
+    }
+
+    /**
      *    @mbg.generated 自动生成，如需修改，请删除本行
      */
     @Override
@@ -193,6 +224,7 @@ public class SucNoticeMo implements Serializable {
         sb.append(", noticeContent=").append(noticeContent);
         sb.append(", autoDownTime=").append(autoDownTime);
         sb.append(", schoolName=").append(schoolName);
+        sb.append(", state=").append(state);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();
