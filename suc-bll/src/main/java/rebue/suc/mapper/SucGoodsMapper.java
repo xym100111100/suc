@@ -2,8 +2,11 @@ package rebue.suc.mapper;
 
 import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
+
 import rebue.robotech.mapper.MybatisBaseMapper;
-import rebue.suc.Ro.UserDriverRo;
+import rebue.suc.Ro.UserGoodsRo;
 import rebue.suc.mo.SucGoodsMo;
 
 @Mapper
@@ -64,5 +67,9 @@ public interface SucGoodsMapper extends MybatisBaseMapper<SucGoodsMo, Long> {
     int countSelective(SucGoodsMo record);
     
     
-   List<UserDriverRo> listGoods(SucGoodsMo mo);
+   List<UserGoodsRo> listGoods(SucGoodsMo mo);
+   
+   @Select("SELECT * FROM SUC_GOODS WHERE ID IN (${goodIds})")
+   List<UserGoodsRo> listGoodsByGoodIds(@Param("goodIds") String goodIds);
+   
 }

@@ -1,5 +1,7 @@
 package rebue.suc.svc;
 
+
+
 import com.github.pagehelper.PageInfo;
 
 import rebue.robotech.ro.Ro;
@@ -17,4 +19,6 @@ public interface SucGoodsSvc extends BaseSvc<java.lang.Long, SucGoodsMo, SucGood
 	Ro addGoods(SucGoodsTo to);
 	
 	PageInfo<UserGoodsRo> listGoods(final SucGoodsMo mo, Integer pageNum,  Integer pageSize);
+	
+	PageInfo<UserGoodsRo> listGoodsByGoodIds( String goodIds, Integer pageNum,  Integer pageSize);
 }

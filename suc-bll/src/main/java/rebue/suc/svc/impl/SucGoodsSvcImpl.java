@@ -137,11 +137,17 @@ public class SucGoodsSvcImpl extends BaseSvcImpl<java.lang.Long, SucGoodsJo, Suc
 			item.setClassName(classResult.getClassName());
 			// 获取用户微信昵称
 			log.info("获取用户的微信昵称的参数iuserId-{}", item.getUserId());
-			SucUserMo userResult=sucUserSvc.getById(item.getUserId());
+			SucUserMo userResult = sucUserSvc.getById(item.getUserId());
 			log.info("获取用户的微信昵称的结果userResult-{}", userResult);
 			item.setUserName(userResult.getWxName());
 		}
 
 		return result;
+	}
+
+	@Override
+	public PageInfo<UserGoodsRo> listGoodsByGoodIds(String goodIds, Integer pageNum, Integer pageSize) {
+		log.info("获取商品ids获取商品参数为-{}", goodIds);
+		return PageHelper.startPage(pageNum, pageSize).doSelectPageInfo(() -> _mapper.listGoodsByGoodIds(goodIds));
 	}
 }

@@ -1,7 +1,11 @@
 package rebue.suc.mapper;
 
 import java.util.List;
+
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+
 import rebue.robotech.mapper.MybatisBaseMapper;
 import rebue.suc.mo.SucLoveMo;
 
@@ -62,4 +66,8 @@ public interface SucLoveMapper extends MybatisBaseMapper<SucLoveMo, Long> {
      *    @mbg.generated 自动生成，如需修改，请删除本行
      */
     int countSelective(SucLoveMo record);
+    
+    
+    @Delete("delete from SUC_LOVE WHERE GOODS_ID IN (${goodIds}) ")
+    int delByIds(@Param("goodIds") String goodIds);
 }
