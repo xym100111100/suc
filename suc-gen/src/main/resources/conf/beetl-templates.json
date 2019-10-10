@@ -1,39 +1,5 @@
 [
-	{
-		"templateName": "svc.btl",
-		"targetDir": "../suc-api/src/main/java/${modulePath}/svc/",
-		"targetFile": "${entityName}Svc.java",
-		"isGenTargetOnMiddleTable": false,
-		"backup": false
-	},
-	{
-		"templateName": "svc-impl.btl",
-		"targetDir": "../suc-bll/src/main/java/${modulePath}/svc/impl/",
-		"targetFile": "${entityName}SvcImpl.java",
-		"isGenTargetOnMiddleTable": false,
-		"backup": false
-	},
-	{
-		"templateName": "ctrl.btl",
-		"targetDir": "../suc-svr/src/main/java/${modulePath}/ctrl/",
-		"targetFile": "${entityName}Ctrl.java",
-		"isGenTargetOnMiddleTable": false,
-		"backup": false
-	},
-	{
-		"templateName": "test.btl",
-		"targetDir": "../suc-svr/src/test/java/${modulePath}/test/",
-		"targetFile": "${entityName}Tests.java",
-		"isGenTargetOnMiddleTable": false,
-		"backup": false
-	},
-	{
-		"templateName": "dao.btl",
-		"targetDir": "../suc-bll/src/main/java/${modulePath}/dao/",
-		"targetFile": "${entityName}Dao.java",
-		"isGenTargetOnMiddleTable": false,
-		"backup": false
-	},
+
 	{
 		"templateName": "jo.btl",
 		"targetDir": "../suc-api/src/main/java/${modulePath}/jo/",

@@ -31,5 +31,6 @@
     <module>suc-api</module>
     <module>suc-bll</module>
     <module>suc-svr</module>
+    <module>suc-svr-feign</module>
   </modules>
 </project>

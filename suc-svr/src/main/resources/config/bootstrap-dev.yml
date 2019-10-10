@@ -3,7 +3,7 @@ debug: true
 
 server:
   # 自定义端口号，方便开发测试
-  port: 9100
+  port: 9750
 
 eureka:
   client:
