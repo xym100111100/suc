@@ -119,6 +119,7 @@ public class SucLoveSvcImpl extends BaseSvcImpl<java.lang.Long, SucLoveJo, SucLo
 			SucUserMo userResult = sucUserSvc.getById(item.getUserId());
 			log.info("获取用户的微信昵称的结果userResult-{}", userResult);
 			item.setUserName(userResult.getWxName());
+			item.setWxFacePath(userResult.getWxFacePath());
 		}
 
 		return result;

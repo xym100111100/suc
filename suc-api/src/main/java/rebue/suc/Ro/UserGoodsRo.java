@@ -50,6 +50,8 @@ public class UserGoodsRo {
 	
 	private String userName; // 微信昵称
 	
+	private String wxFacePath;
+	
     private Boolean state;
 
 	private List<SucGoodsImgMo> fileList;
