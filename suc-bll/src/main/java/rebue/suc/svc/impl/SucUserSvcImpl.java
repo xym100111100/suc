@@ -51,8 +51,8 @@ public class SucUserSvcImpl extends BaseSvcImpl<java.lang.Long, SucUserJo, SucUs
 		UserLoginRo ro = new UserLoginRo();
 		SucUserMo getUserMo = new SucUserMo();
 		getUserMo.setWxOpenid(mo.getWxOpenid());
-		log.info("获取用户的参数为: getUserMo-", getUserMo);
-		SucUserMo userResult = super.getOne(mo);
+		log.info("获取用户的参数为: getUserMo-{}", getUserMo);
+		SucUserMo userResult = super.getOne(getUserMo);
 		log.info("获取用户的结果为: userResult-", userResult);
 		if (userResult == null) {
 			log.info("用户不存在，添加新用户");

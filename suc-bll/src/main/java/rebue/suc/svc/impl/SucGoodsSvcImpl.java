@@ -87,7 +87,6 @@ public class SucGoodsSvcImpl extends BaseSvcImpl<java.lang.Long, SucGoodsJo, Suc
 		Calendar c = Calendar.getInstance();
 		c.add(Calendar.DAY_OF_MONTH, 14);
 		Date date = new Date();
-		;
 		try {
 			date = sf.parse(sf.format(c.getTime()));
 			mo.setAotuDownTime(date);
@@ -140,6 +139,7 @@ public class SucGoodsSvcImpl extends BaseSvcImpl<java.lang.Long, SucGoodsJo, Suc
 			SucUserMo userResult = sucUserSvc.getById(item.getUserId());
 			log.info("获取用户的微信昵称的结果userResult-{}", userResult);
 			item.setUserName(userResult.getWxName());
+			item.setWxFacePath(userResult.getWxFacePath());
 		}
 
 		return result;
