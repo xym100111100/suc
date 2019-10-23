@@ -18,4 +18,6 @@ public class SucNoticeRo {
     private String wxFacePath;
     
     private String noticeContent;
+    
+    private String schoolName;
 }
