@@ -48,7 +48,7 @@ public class SucNoticeSvcImpl extends
 	public int add(SucNoticeMo mo) {
 		log.info("sucNoticeSvc.add: 添加用户需求公告 mo-{}", mo);
 		SucNoticeMo addMo = new SucNoticeMo();
-		addMo.setUserId(mo.getId());
+		addMo.setUserId(mo.getUserId());
 		List<SucNoticeMo> result = super.list(addMo);
 		if (result.size() > 4) {
 			return -1;
