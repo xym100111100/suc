@@ -8,7 +8,7 @@ server:
 eureka:
   client:
     service-url:
-      defaultZone: http://192.168.8.201:8761/eureka/
+      defaultZone: http://192.168.6.201:8761/eureka/
 
 logging:
   config: classpath:config/log4j2.xml
@@ -23,12 +23,12 @@ spring:
     config:
       enabled: false
   rabbitmq:
-    host: 192.168.8.201
+    host: 192.168.6.201
     port: 5672
     username: guest
     password: guest
   datasource:
-    url: jdbc:mysql://192.168.8.201:3306/suc?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+    url: jdbc:mysql://192.168.6.201:3306/suc?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
     username: suc
     password: suc
 
